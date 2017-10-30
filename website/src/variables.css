@@ -1,0 +1,63 @@
+:root {
+  /*
+   * Typography
+   * ======================================================================== */
+
+  --font-family: 'Roboto', sans-serif;
+  --font-replica: 'Replica', 'Roboto', sans-serif;
+  --font-replica-bold: 'ReplicaBold', 'Roboto', sans-serif;
+  --font-replica-light: 'ReplicaLight', 'Roboto', sans-serif;
+
+  /*
+   * Layout
+   * ======================================================================== */
+
+  --max-content-width: 1000px;
+
+  /*
+   * Media queries breakpoints
+   * ======================================================================== */
+
+  --screen-xs-min: 480px;  /* Extra small screen / phone */
+  --screen-sm-min: 768px;  /* Small screen / tablet */
+  --screen-md-min: 992px;  /* Medium screen / desktop */
+  --screen-lg-min: 1200px; /* Large screen / wide desktop */
+
+  --header-height: 64px; /* height of header */
+
+  /*
+   * Colors
+   * ======================================================================== */
+
+  /* BASE */
+  --background-color: #E8E8E3;
+  --base-body-color: #2E2E2E;
+  --black: #2E2E2E;
+  --white: #FFFFFF;
+  --beige: #EADCBE;
+  --blue: #00FFF6;
+  --orange: #FF8C01;
+  --blue-green: #18FBDE;
+  --grey: #BBB8B2;
+  --red: #E06666;
+  --green: #93C47D;
+  --magenta: #FF02CC;
+
+  /*
+   * Components
+   * ======================================================================== */
+
+   --moduleWidth: calc(100vw - 251px);
+   --moduleLeftMargin: 200px;
+   --moduleRightMargin: 50px;
+
+  /*
+   * Typography
+   * ======================================================================== */
+
+   --titleText: calc(4em + 2vw);
+   --headerText: calc(2em + 2vw);
+   --subtitleText: calc(1em + 1vw);
+   --subtitleContentText: calc(1em + 0.1vw);
+
+}

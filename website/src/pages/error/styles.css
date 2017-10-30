@@ -1,0 +1,50 @@
+@import '../../variables.css';
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+.title {
+  width: 400px;
+  margin: 20px 0;
+  color: var(--black);
+  letter-spacing: 0.02em;
+  font-weight: 300;
+  font-size: 3em;
+  line-height: 1;
+  font-family: var(--font-family);
+  text-align: center;
+}
+
+.text {
+  padding-bottom: 0;
+  color: color(var(--black) alpha(50%));
+  font-family: var(--font-family);
+  font-size: 1.125em;
+  line-height: 1.5em;
+}

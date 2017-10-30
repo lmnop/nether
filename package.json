@@ -1,0 +1,56 @@
+{
+  "name": "lava",
+  "version": "0.0.1",
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.0.0",
+    "npm": ">=5.0.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start-web": "cd web && yarn start",
+    "build-web": "cd web && yarn build",
+    "deploy-web": "cd web && yarn deploy",
+    "compile": "truffle compile",
+    "deploy-dev": "truffle migrate --network development --reset",
+    "deploy-rinkeby": "truffle migrate --network rinkeby --reset",
+    "deploy": "truffle migrate --network main --reset",
+    "test": "sh scripts/test.sh",
+    "lint-node": "eslint test",
+    "lint-solidity": "solium --dir .",
+    "lint": "yarn lint-node && yarn lint-solidity"
+  },
+  "dependencies": {
+    "babel-preset-es2015-node5": "^1.2.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "dotenv": "^4.0.0",
+    "truffle-hdwallet-provider": "^0.0.3"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.2",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-mocha": "^4.11.0",
+    "eslint-plugin-react": "^7.1.0"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": "airbnb",
+    "env": {
+      "node": true,
+      "mocha": true
+    },
+    "plugins": [
+      "mocha"
+    ],
+    "rules": {
+      "mocha/no-exclusive-tests": "error",
+      "mocha/no-skipped-tests": "error",
+      "mocha/no-identical-title": "error",
+      "no-console": "off"
+    }
+  }
+}
