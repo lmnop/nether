@@ -6,7 +6,6 @@ function ProductEcosystem(props) {
     <div className={s.module}>
       <div className={s.grid}>
         <div className={s.gridLeft}>
-          <img src='/images/familyshot.png' className={s.image}/>
           <div className={s.gridText}>
             <div className={s.title}>
               At home, on the go & on your phone
@@ -18,7 +17,6 @@ function ProductEcosystem(props) {
             </div>
           </div>
         </div>
-        <div className={s.gridRight} />
       </div>
     </div>
   );

@@ -48,10 +48,17 @@ class HomePage extends Component {
     );
   }
 
+  // render() {
+  //   return (
+  //     <Layout>
+  //       {this.state.width >= 640 ? this.renderDesktop() : this.renderMobile()}
+  //     </Layout>
+  //   );
+
   render() {
     return (
       <Layout>
-        {this.state.width >= 640 ? this.renderDesktop() : this.renderMobile()}
+        {this.renderDesktop()}
       </Layout>
     );
   }

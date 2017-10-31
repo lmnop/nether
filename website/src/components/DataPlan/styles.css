@@ -3,8 +3,8 @@
 .module {
   align-self: stretch;
   flex: 0 1;
-  background: linear-gradient(180deg, #0E0E0E 0%, #252525 100%);
   flex-direction: column;
+  background-color: #F3F3F3;
 }
 
 .grid {
@@ -12,15 +12,9 @@
   align-self: stretch;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   align-self: stretch;
   margin: 30px;
-  height: 100vh;
-  background-image: url('../../../public/images/marquee.png'),
-  linear-gradient(to right, #7400CF 0%, #7400CF 50%, #000 50%, #000 100%);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: right bottom;
 }
 
 .gridLeft {
@@ -30,7 +24,17 @@
   position: relative;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-end;
+}
+
+.gridRight {
+  align-self: stretch;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
   align-items: flex-start;
+  margin-left: 50px;
 }
 
 .gridText {
@@ -46,28 +50,18 @@
 .title {
   font-family: var(--font-replica-light);
   font-weight: 100;
-  line-height: 75px;
-  font-size: 72px;
-  letter-spacing: 1.44px;
+  line-height: 57px;
+  font-size: 54px;
+  color: #4F4F4F;
   margin: 0;
 }
 
 .subtitle {
   font-family: var(--font-replica-light);
   font-weight: 100;
-  line-height: 26px;
-  font-size: 18px;
-  letter-spacing: 0.36px;
+  line-height: 18px;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  color: #4F4F4F;
   margin: 20px 0;
-}
-
-.borderLink {
-  font-family: var(--font-replica-light);
-  line-height: 20px;
-  font-size: 15px;
-  text-align: center;
-  letter-spacing: 0.75px;
-  color: #00F9B8;
-  border: 3px solid #00F9B8;
-  padding: 10px;
 }

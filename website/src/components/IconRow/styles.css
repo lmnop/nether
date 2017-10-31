@@ -1,0 +1,65 @@
+@import '../../variables.css';
+
+.row {
+  display: flex;
+  flex: 1;
+  align-self: stretch;
+  margin: 30px 0 100px;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row wrap;
+  max-width: 80%;
+}
+
+.item {
+  display: flex;
+  flex: 1;
+  padding: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.itemImage {
+  height: 90px;
+  margin-bottom: 40px; 
+}
+
+.itemTitle {
+  font-family: var(--font-replica-light);
+  line-height: 18px;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #4F4F4F;
+}
+
+.subtitle {
+  font-family: var(--font-replica-light);
+  margin-top: 100px;
+  max-width: 30%;
+  line-height: 18px;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0.6px;
+  color: #828282;
+}
+
+.link {
+  font-weight: bold;
+  line-height: 20px;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0.75px;
+  color: #00F9B8;
+  margin: 40px 0;
+}

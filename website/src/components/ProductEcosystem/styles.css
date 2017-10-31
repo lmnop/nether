@@ -4,6 +4,7 @@
   align-self: stretch;
   flex: 0 1;
   background: linear-gradient(180deg, #0E0E0E 0%, #252525 100%);
+  flex-direction: column;
 }
 
 .grid {
@@ -14,38 +15,32 @@
   justify-content: flex-start;
   align-self: stretch;
   margin: 30px;
+  height: 100vh;
+  background-image: url('../../../public/images/familyshot.png'),
+  linear-gradient(to right, #7400CF 0%, #7400CF 50%, #000 50%, #000 100%);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right top;
 }
 
 .gridLeft {
-  background-color: #7400CF;
   align-self: stretch;
   display: flex;
   flex: 1;
   position: relative;
   flex-direction: column;
-  justify-content: flex-end;
-}
-
-.image {
-  width: 200%;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .gridText {
-  position: absolute;
-  top: 120px;
-  left: 100px;
+  margin-left: 100px;
   width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   color: white;
-}
-
-.gridRight {
-  align-self: stretch;
-  display: flex;
-  flex: 1;
 }
 
 .title {

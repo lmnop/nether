@@ -3,6 +3,7 @@
 .module {
   align-self: stretch;
   flex: 0 1;
+  flex-direction: column;
 }
 
 .grid {
@@ -11,7 +12,14 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  align-self: stretch;
   margin: 30px;
+  height: 100vh;
+  background-image: url('../../../public/images/spot.png'),
+  linear-gradient(to right, #FFF 0%, #FFF 50%, #8F00FF 50%, #8F00FF 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .gridLeft {
@@ -20,31 +28,24 @@
   flex: 1;
   position: relative;
   flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-}
-
-.image {
-  width: 200%;
-}
-
-.gridText {
-  position: absolute;
-  top: 120px;
-  left: 100px;
-  width: 300px;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  color: white;
 }
 
 .gridRight {
   align-self: stretch;
   display: flex;
   flex: 1;
-  background-color: #8F00FF;
+}
+
+.gridText {
+  margin-left: 100px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: white;
 }
 
 .title {

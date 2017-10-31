@@ -13,12 +13,9 @@ function Grid(props) {
             <div className={s.subtitle}>
               The future of blockchain is almost here. Order Alpha to get started.
             </div>
-          <img src='/images/marquee.png' className={s.image}/>
-          
             <a href='#' className={s.borderLink}>Order Alpha</a>
           </div>
         </div>
-        <div className={s.gridRight} />
       </div>
     </div>
   );
