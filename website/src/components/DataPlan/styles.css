@@ -1,0 +1,67 @@
+@import '../../variables.css';
+
+.module {
+  align-self: stretch;
+  flex: 0 1;
+  flex-direction: column;
+  background-color: #F3F3F3;
+}
+
+.grid {
+  display: flex;
+  align-self: stretch;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  margin: 30px;
+}
+
+.gridLeft {
+  align-self: stretch;
+  display: flex;
+  flex: 1;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.gridRight {
+  align-self: stretch;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 50px;
+}
+
+.gridText {
+  margin-left: 100px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: white;
+}
+
+.title {
+  font-family: var(--font-replica-light);
+  font-weight: 100;
+  line-height: 57px;
+  font-size: 54px;
+  color: #4F4F4F;
+  margin: 0;
+}
+
+.subtitle {
+  font-family: var(--font-replica-light);
+  font-weight: 100;
+  line-height: 18px;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  color: #4F4F4F;
+  margin: 20px 0;
+}

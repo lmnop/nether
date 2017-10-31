@@ -1,0 +1,73 @@
+@import '../../variables.css';
+
+.module {
+  align-self: stretch;
+  flex: 0 1;
+  background: linear-gradient(180deg, #0E0E0E 0%, #252525 100%);
+  flex-direction: column;
+}
+
+.grid {
+  display: flex;
+  align-self: stretch;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  align-self: stretch;
+  margin: 30px;
+  height: 100vh;
+  background-image: url('../../../public/images/marquee.png'),
+  linear-gradient(to right, #7400CF 0%, #7400CF 50%, #000 50%, #000 100%);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right bottom;
+}
+
+.gridLeft {
+  align-self: stretch;
+  display: flex;
+  flex: 1;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.gridText {
+  margin-left: 100px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: white;
+}
+
+.title {
+  font-family: var(--font-replica-light);
+  font-weight: 100;
+  line-height: 75px;
+  font-size: 72px;
+  letter-spacing: 1.44px;
+  margin: 0;
+}
+
+.subtitle {
+  font-family: var(--font-replica-light);
+  font-weight: 100;
+  line-height: 26px;
+  font-size: 18px;
+  letter-spacing: 0.36px;
+  margin: 20px 0;
+}
+
+.borderLink {
+  font-weight: bold;
+  line-height: 20px;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0.75px;
+  color: #00F9B8;
+  border: 3px solid #00F9B8;
+  padding: 10px;
+}
