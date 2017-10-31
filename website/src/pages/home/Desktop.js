@@ -11,6 +11,7 @@ import Hotspot from '../../components/Hotspot';
 import Router from '../../components/Router';
 import Phone from '../../components/Phone';
 import Outreach from '../../components/Outreach';
+import Footer from '../../components/Footer';
 
 import s from './desktop.css';
 
@@ -26,6 +27,7 @@ function Desktop(props) {
       <Router />
       <Phone />
       <Outreach />
+      <Footer />
     </div>
   );
 }

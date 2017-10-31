@@ -29,7 +29,9 @@ const renderRow = () => {
 
   return (
     <div className={s.row}>
-      {items}
+      <div className={s.container}>
+        {items}
+      </div>
     </div>
   );
 }
