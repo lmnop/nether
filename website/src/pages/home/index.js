@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import Layout from '../../components/Layout';
+import Mobile from './Mobile';
+import Desktop from './Desktop';
 
 import * as userActions from '../../actions/user';
 
@@ -34,10 +36,22 @@ class HomePage extends Component {
     });
   }
 
+  renderMobile() {
+    return (
+      <Mobile />
+    );
+  }
+
+  renderDesktop() {
+    return (
+      <Desktop />
+    );
+  }
+
   render() {
     return (
       <Layout>
-        <div>Hello World</div>
+        {this.state.width >= 640 ? this.renderDesktop() : this.renderMobile()}
       </Layout>
     );
   }
