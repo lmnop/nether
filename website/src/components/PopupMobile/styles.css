@@ -13,12 +13,12 @@ textarea:focus, input:focus{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 30px;
+  padding: 10px;
   min-height: 100vh;
-  background: #101413 url('../../../public/images/popup.png');
+  background: #101413 url('../../../public/images/popupmobile.png');
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: right top;
+  background-position: center top;
 }
 
 .top {
@@ -38,15 +38,15 @@ textarea:focus, input:focus{
 .title {
   font-weight: bold;
   line-height: 34px;
-  font-size: 36px;
+  font-size: 24px;
   letter-spacing: 0.3px;
   color: #FFFFFF;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 .subtitle {
-  line-height: 22px;
-  font-size: 24px;
+  line-height: 10px;
+  font-size: 12px;
   letter-spacing: 0.3px;
   color: #00F9B8;
 }
@@ -66,37 +66,33 @@ textarea:focus, input:focus{
 
 .bottom {
   display: flex;
-  flex: 3;
+  flex: 1;
   align-self: stretch;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: flex-end;
   justify-content: flex-end;
-}
-
-.buffer {
-  display: flex;
-  flex: 3;
+  margin-top: auto;
 }
 
 .form {
   display: flex;
-  flex: 2;
+  flex: 3;
   flex-direction: column;
-  margin: 10px;
-  padding: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
 }
 
 .link {
-  margin: 0 10px 10px;
+  margin: 0 5px 5px;
   font-weight: bold;
-  line-height: 20px;
-  font-size: 15px;
+  line-height: 16px;
+  font-size: 12px;
   color: #00F9B8;
 }
 
 .input {
-  margin: 10px;
-  padding: 10px;
+  margin: 5px;
+  padding: 5px;
   line-height: 16px;
   font-size: 12px;
   color: #828282;
@@ -105,8 +101,8 @@ textarea:focus, input:focus{
 }
 
 .blurb {
-  margin: 10px;
-  padding: 10px;
+  margin: 5px;
+  padding: 5px;
   line-height: 12px;
   font-size: 9px;
   color: #828282;
@@ -116,8 +112,8 @@ textarea:focus, input:focus{
   display: flex;
   flex-direction: row;
   margin: 10px;
-  line-height: 16px;
-  font-size: 12px;
+  line-height: 12px;
+  font-size: 9px;
   color: #E0E0E0;
 }
 
@@ -137,8 +133,8 @@ textarea:focus, input:focus{
   display: flex;
   flex-direction: row;
   margin: 10px;
-  line-height: 20px;
-  font-size: 15px;
+  line-height: 16px;
+  font-size: 12px;
   color: #E0E0E0;
 }
 
@@ -159,8 +155,8 @@ textarea:focus, input:focus{
   display: flex;
   flex: 1;
   flex-direction: column;
-  margin: 70px 10px 10px;
-  padding: 10px;
+  margin-bottom: 70px;
+  padding: 5px;
 }
 
 .block {
@@ -169,10 +165,10 @@ textarea:focus, input:focus{
 }
 
 .blockTitle {
-  padding-bottom: 10px;
-  margin-bottom: 10px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
   line-height: 16px;
-  font-size: 15px;
+  font-size: 12px;
   color: #E0E0E0;
   border-bottom: 1px solid #E0E0E0;
 }

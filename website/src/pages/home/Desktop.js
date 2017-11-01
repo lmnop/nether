@@ -18,23 +18,6 @@ import Popup from '../../components/Popup';
 
 import s from './desktop.css';
 
-// function Desktop(props) {
-//   return (
-//     <div className={s.container}>
-//       <Header />
-//       <Grid />
-//       <Privacy />
-//       <DataPlan />
-//       <ProductEcosystem />
-//       <Hotspot />
-//       <Router />
-//       <Phone />
-//       <Outreach />
-//       <Footer />
-//     </div>
-//   );
-// }
-
 class Desktop extends Component {
   constructor(props) {
     super(props);
@@ -51,7 +34,6 @@ class Desktop extends Component {
   }
 
   render() {
-    console.log('this.state', this.state)
     return (
       <div className={s.container}>
         <Header onClick={this.toggleModal.bind(this)} />

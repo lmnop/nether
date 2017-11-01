@@ -30,7 +30,6 @@ function Popup(props) {
           </div>
         </div>
         <div className={s.bottom}>
-          <div className={s.buffer} />
           <form className={s.form}>
             <a href="#" className={s.link}>
               Not a member? Register here.
