@@ -12,7 +12,12 @@ function Header(props) {
       </div>
       <div className={s.right}>
         <a href="#" className={s.simpleLink}>My Manager</a>
-        <a href="#" className={s.borderLink}>Order Alpha</a>
+        <div
+          className={s.borderLink}
+          onClick={props.onClick}
+        >
+          Order Alpha
+        </div>
       </div>
     </div>
   );

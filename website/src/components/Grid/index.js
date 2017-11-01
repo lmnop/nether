@@ -13,7 +13,9 @@ function Grid(props) {
             <div className={s.subtitle}>
               The future of blockchain is almost here. Order Alpha to get started.
             </div>
-            <a href='#' className={s.borderLink}>Order Alpha</a>
+            <div onClick={props.onClick} className={s.borderLink}>
+              Order Alpha
+            </div>
           </div>
         </div>
       </div>
