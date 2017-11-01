@@ -9,9 +9,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  z-index: 10000;
   padding: 0 30px;
   height: 120px;
+  z-index: 9000;
 }
 
 .left {
@@ -48,5 +48,6 @@
   border: 3px solid #00F9B8;
   padding: 10px;
   font-weight: bold;
+  cursor: pointer;
 }
 
