@@ -58,7 +58,7 @@ class HomePage extends Component {
   render() {
     return (
       <Layout>
-        {this.renderDesktop()}
+        {this.renderMobile()}
       </Layout>
     );
   }
