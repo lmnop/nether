@@ -1,61 +1,49 @@
-# Nether
+#Nether
 
-Includes Nether website, Device Manager DAPP, and associated contracts
+Website and DAPP to purchase devices, manage devices, and manage data.
 
 ## Requirements
 
 - [node v8.0.0+](https://nodejs.org/)
 - [npm v5.0.0+](https://www.npmjs.com/)
 - [yarn](https://yarnpkg.com/)
-- [truffle](http://truffleframework.com/)
-- [testrpc](https://github.com/ethereumjs/testrpc)
-- [solium](https://github.com/duaraghav8/solium)
+- [eslint](http://eslint.org/)
+- [mocha](https://mochajs.org/)
 
 
-### Install
+**Install**
 
 ```shell
 $ yarn install
 ```
 
 
-### Test
+**Start**
 
 ```shell
+$ yarn start
+$ yarn start -- --release
+$ yarn start -- --no-hmr
+```
+
+
+**Test**
+
+```shell
+$ yarn lint
 $ yarn test
 ```
 
 
-### Lint
-
-```
-$ yarn lint
-```
-
-
-### Compile Contracts
-
-```shell
-$ yarn compile
-```
-
-
-### Deploy on TestRPC
-
-```shell
-$ yarn deploy-dev
-```
-
-
-### Deploy on Rinkeby Testnet
-
-```shell
-$ yarn deploy-rinkeby
-```
-
-
-### Deploy on Mainnet
+**Deploy**
 
 ```shell
 $ yarn deploy
+```
+
+
+**Build**
+
+```shell
+$ yarn build
 ```

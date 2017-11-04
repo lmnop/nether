@@ -1,31 +1,19 @@
-# Logs
-logs
-*.log
-npm-debug.log*
+# Include your project-specific ignores in this file
+# Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
 
-# Runtime data
-pids
-*.pid
-*.seed
+# Compiled output
+public/dist
+public/index.html
+public/404.html
+public/sitemap.xml
 
-# Coverage directory used by tools like istanbul
-coverage
-
-# node-waf configuration
-.lock-wscript
-
-# Dependency directory
+# Node.js and NPM
 node_modules
+npm-debug.log
+
+# Firebase
+firebase-debug.log
+
+# Random
+**.DS_Store
 yarn-error.log
-
-# Optional npm cache directory
-.npm
-
-# Optional REPL history
-.node_repl_history
-
-# OSX
-.DS_Store
-
-# Environment Variables
-.env
