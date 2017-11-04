@@ -5,6 +5,11 @@
     "chunk": "main"
   },
   {
+    "path": "/unlock",
+    "page": "./pages/unlock",
+    "chunk": "main"
+  },
+  {
     "path": "/error",
     "page": "./pages/error",
     "chunk": "main"

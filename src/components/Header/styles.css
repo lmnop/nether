@@ -40,14 +40,32 @@
 }
 
 .simpleLink {
-  color: #00F9B8;
+  color: var(--green);
+  margin-bottom: 10px;
+  font-family: var(--font-replica-bold);
+  opacity: 0.8;
+  transition: all 1s ease;
+}
+
+.simpleLink:hover {
+  cursor: pointer;
+  opacity: 1;
 }
 
 .borderLink {
-  color: #00F9B8;
-  border: 3px solid #00F9B8;
-  padding: 10px;
-  font-weight: bold;
+  color: var(--green);
+  border: 2px solid var(--green);
+  padding-left: 14px;
+  padding-right: 14px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: var(--font-replica-bold);
+  transition: all 1s ease;
+}
+
+.borderLink:hover {
   cursor: pointer;
+  background-color: var(--green);
+  color: var(--black);
 }
 

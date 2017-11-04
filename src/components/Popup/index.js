@@ -2,18 +2,15 @@ import React from 'react';
 import ReactModal from 'react-modal';
 import s from './styles.css';
 
-const style = {
-  overlay : {
-    zIndex: 10000,
-  },
-};
-
-
 function Popup(props) {
   return (
     <ReactModal
       isOpen={props.isModalOpen}
-      style={style}
+      style={{
+        overlay : {
+          zIndex: 10000,
+        },
+      }}
     >
       <div className={s.container}>
         <div className={s.top}>

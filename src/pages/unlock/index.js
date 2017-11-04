@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 
 import Layout from '../../components/Layout';
-import Mobile from './Mobile';
-import Desktop from './Desktop';
 
-class HomePage extends Component {
+class UnlockPage extends Component {
 
   constructor(props) {
     super(props);
@@ -31,10 +29,10 @@ class HomePage extends Component {
   render() {
     return (
       <Layout>
-        {this.state.width >= 800 ? <Desktop /> : <Mobile />}
+        
       </Layout>
     );
   }
 }
 
-export default HomePage;
+export default UnlockPage;

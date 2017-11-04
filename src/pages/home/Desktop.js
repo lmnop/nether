@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-
-import IconButton from 'material-ui/IconButton';
+import { connect } from 'react-redux';
 
 import Header from '../../components/Header';
 import Grid from '../../components/Grid';
@@ -13,7 +11,6 @@ import Router from '../../components/Router';
 import Phone from '../../components/Phone';
 import Outreach from '../../components/Outreach';
 import Footer from '../../components/Footer';
-
 import Popup from '../../components/Popup';
 
 import s from './desktop.css';
@@ -23,21 +20,25 @@ class Desktop extends Component {
     super(props);
 
     this.state = {
-      isModalOpen: false,
+      showOrder: false,
+      showManager: false,
     };
   }
 
-  toggleModal(){
+  onClickOrder() {
     this.setState({
-      isModalOpen: !this.state.isModalOpen,
+      showOrder: !this.state.showOrder,
     });
   }
 
   render() {
     return (
       <div className={s.container}>
-        <Header onClick={this.toggleModal.bind(this)} />
-        <Grid onClick={this.toggleModal.bind(this)} />
+        <Header
+          showLogin={!this.props.user.email}
+          onClickOrder={this.onClickOrder.bind(this)}
+        />
+        <Grid />
         <Privacy />
         <DataPlan />
         <ProductEcosystem />
@@ -47,12 +48,22 @@ class Desktop extends Component {
         <Outreach />
         <Footer />
         <Popup
-          isModalOpen={this.state.isModalOpen}
-          onClick={this.toggleModal.bind(this)}
+          isModalOpen={this.state.showOrder}
+          onClick={this.onClickOrder.bind(this)}
         />
       </div>
     );
   }
 }
 
-export default Desktop;
+const bindStore = (state) => {
+  return {
+    user: state.user,
+  };
+};
+
+const bindActions = dispatch => ({
+
+});
+
+export default connect(bindStore, bindActions)(Desktop);

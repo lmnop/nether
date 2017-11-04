@@ -16,8 +16,10 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.22.0",
+    "bip39": "^2.4.0",
     "fastclick": "^1.0.6",
     "history": "^4.5.1",
+    "lmnop-contracts": "git+https://github.com/lmnop/contracts.git",
     "lodash": "^4.17.4",
     "material-ui": "^0.17.0",
     "moment": "^2.17.1",
@@ -32,7 +34,9 @@
     "react-waypoint": "^7.3.1",
     "redux": "^3.6.0",
     "redux-persist": "^5.0.1",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "truffle-contract": "^3.0.1",
+    "truffle-hdwallet-provider": "^0.0.3"
   },
   "devDependencies": {
     "assets-webpack-plugin": "^3.5.0",

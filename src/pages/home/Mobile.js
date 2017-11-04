@@ -44,7 +44,7 @@ class Mobile extends Component {
     super(props);
 
     this.state = {
-      isModalOpen: true,
+      isModalOpen: false,
     };
   }
 
