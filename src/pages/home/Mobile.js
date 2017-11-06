@@ -59,7 +59,7 @@ class Mobile extends Component {
               {content.privacy.text}
             </div>
             <a target="_blank" href='https://lmnop.network' className={s.linkPrivacy}>
-              Check out L|M|N|O|P
+              Learn more at L|M|N|O|P
             </a>
           </div>
         </div>
@@ -167,12 +167,12 @@ class Mobile extends Component {
               <div className={s.rowOutreach}>
                 <div className={s.itemOutreach}>
                   <div className={s.headerOutreach}>
-                    Network and Privacy Champions
+                    NETWORK AND PRIVACY CHAMPIONS
                   </div>
                   <div className={s.textOutreach}>
                     We are hiring.
                   </div>
-                  <a href='#' className={s.linkOutreach}>
+                  <a href="mailto:connect@lmnop.co" className={s.linkOutreach}>
                     Apply Now
                   </a>
                 </div>
@@ -183,8 +183,8 @@ class Mobile extends Component {
                   <div className={s.textOutreach}>
                     Want to contribute?
                   </div>
-                  <a href='#' className={s.linkOutreach}>
-                    Get In Touch
+                  <a href='https://github.com/lmnop' className={s.linkOutreach}>
+                    Checkout our code
                   </a>
                 </div>
                 <div className={s.itemOutreach}>
@@ -194,7 +194,7 @@ class Mobile extends Component {
                   <div className={s.textOutreach}>
                     Have an idea to help us grow?
                   </div>
-                  <a href='#' className={s.linkOutreach}>
+                  <a href="mailto:connect@lmnop.co" className={s.linkOutreach}>
                     Reach Out
                   </a>
                 </div>
@@ -205,9 +205,9 @@ class Mobile extends Component {
         <div className={s.moduleFooter}>
           <div className={s.gridFooter}>
             <img src='images/logotext.png' className={s.logoFooter} />
-            <a href='#' className={s.linkFooter}>Investors</a>
-            <a href='#' className={s.linkFooter}>Partners</a>
-            <a href='#' className={s.linkFooter}>Developers</a>
+            <a href='mailto:connect@lmnop.co' className={s.linkFooter}>Investors</a>
+            <a href='mailto:connect@lmnop.co' className={s.linkFooter}>Partners</a>
+            <a href='https://github.com/lmnop' className={s.linkFooter}>Developers</a>
           </div>
         </div>
         <PopupMobile

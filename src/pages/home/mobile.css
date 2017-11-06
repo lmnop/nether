@@ -596,15 +596,21 @@
 }
 
 .linkOutreach {
-  margin-top: auto;
-  font-weight: bold;
-  line-height: 22px;
-  font-size: 16px;
-  text-align: center;
-  letter-spacing: -0.32px;
-  color: #00F9B8;
-  border: 3px solid #00F9B8;
-  padding: 10px;
+  color: var(--green);
+  border: 2px solid var(--green);
+  margin: 10px;
+  padding-left: 14px;
+  padding-right: 14px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: var(--font-replica-bold);
+  transition: all 1s ease;
+}
+
+.linkOutreach:hover {
+  cursor: pointer;
+  background-color: var(--green);
+  color: var(--black);
 }
 
 /******************/

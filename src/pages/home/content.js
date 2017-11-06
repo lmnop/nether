@@ -1,16 +1,16 @@
 export default {
   grid: {
     title: 'Get off the grid',
-    text: 'Order an Alpha device and start paying for your connectivity with crypto today.',
+    text: 'Order an Alpha device today and start paying for your mobile data with crypto.',
   },
   privacy: {
     title: 'The right to privacy exists for all people',
-    text: 'L|M|N|O|P is a next generation mobile data network on the blockchain. It is built to give consumers control over their devices, the agreements they enter into, and the network itself.',
+    text: `Nether devices are powered by the L|M|N|O|P network. L|M|N|O|P is the people's mobile data network. The network is built to give people full control over their devices, the agreements they enter into, and the network itself. We believe people deserve a network that is deserving of its customers.`,
     icons: [
-      { src: 'images/identity.png', text: 'Anonymous Identity'},
-      { src: 'images/security.png', text: 'Security Encryption'},
-      { src: 'images/access.png', text: 'Global Access'},
-      { src: 'images/mobility.png', text: 'Mobility Enabled'},
+      { src: 'images/identity.png', text: 'ANONYMOUS IDENTITY'},
+      { src: 'images/security.png', text: 'SECURITY ENCRYPTION'},
+      { src: 'images/access.png', text: 'GLOBAL ACCESS'},
+      { src: 'images/mobility.png', text: 'MOBILITY ENABLED'},
     ],
   },
   plan: {
@@ -19,36 +19,36 @@ export default {
   },
   products: {
     title: 'At home, on the go & on your phone',
-    text: 'Nether’s vision is to create devices that enable end-to-end privacy to its users. Nether hardware technology will allow you access to the L|M|N|O|P network and will provide higher level of privacy and security.',
+    text: 'Nether’s vision is to create devices that enable end-to-end privacy to its users. Nether hardware technology will allow you access to the LMNOP network and will provide higher level of privacy and security.',
   },
   spot: {
     title: 'Portable Privacy',
-    text: 'Nether Designed Mobile Hotspot built for getting you off the grid even when you’re on it.',
+    text: 'Nether designed Mobile Hotspot built for getting you off the grid even when you’re on it. Nether Spot works with iPhone and Android.',
     icons: [
-      { src: 'images/wifi.png', text: '4G / LTE WI-FI'},
-      { src: 'images/connect.png', text: 'Connect up to 5 devices'},
-      { src: 'images/water.png', text: 'Water Resistant'},
-      { src: 'images/dapp.png', text: 'Integrated Dapp'},
+      { src: 'images/wifi.png', text: 'LTE WI-FI'},
+      { src: 'images/connect.png', text: 'CONNECT UP TO 5 DEVICES'},
+      { src: 'images/water.png', text: 'WATER RESISTANT'},
+      { src: 'images/dapp.png', text: 'INTEGRATED DAPP'},
     ],
   },
   router: {
     title: 'Privacy in your Home, Office & Enterprise',
-    text: 'Nether Designed Stationary Hotspot built for privacy for all your devices at home and/or office. Connect Up to 20 devices.',
+    text: 'Nether designed Stationary Hotspot built for privacy for all your devices at home and/or office. A secure router with the privacy you desearve and the speed you want.',
     icons: [
-      { src: 'images/wifi.png', text: '4G / LTE WI-FI'},
-      { src: 'images/connect.png', text: 'Connect up to 20 devices'},
-      { src: 'images/battery.png', text: 'Battery Reserve'},
-      { src: 'images/vpn.png', text: 'Built-In VPN'},
+      { src: 'images/wifi.png', text: 'LTE WI-FI'},
+      { src: 'images/connect.png', text: 'CONNECT UP TO 20 DEVICES'},
+      { src: 'images/battery.png', text: 'BATTERY RESERVE'},
+      { src: 'images/vpn.png', text: 'BUILT-IN VPN'},
     ],
   },
   phone: {
     title: 'Your phone, your life',
-    text: 'Nether designed phone decentralizes not just your data but your life.',
+    text: 'Nether designed phone decentralizes not just your data but your life. Every layer is designed with privacy and security in mind.',
     icons: [
-      { src: 'images/wifi.png', text: '4G / LTE WI-FI'},
-      { src: 'images/nether.png', text: 'Nether OS'},
-      { src: 'images/vpn.png', text: 'Built-In VPN'},
-      { src: 'images/dapp.png', text: 'Integrated Dapp'},
+      { src: 'images/wifi.png', text: 'LTE WI-FI'},
+      { src: 'images/nether.png', text: 'NETHER OS'},
+      { src: 'images/vpn.png', text: 'BUILT-IN VPN'},
+      { src: 'images/dapp.png', text: 'INTEGRATED DAPP'},
     ],
   },
 }

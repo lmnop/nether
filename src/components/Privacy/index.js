@@ -22,7 +22,7 @@ function Privacy(props) {
           {props.content.text}
         </div>
         <a target="_blank" href='https://lmnop.network' className={s.link}>
-          Check out L|M|N|O|P
+          Learn more at L|M|N|O|P
         </a>
       </div>
     </div>

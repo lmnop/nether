@@ -2,9 +2,9 @@ import React from 'react';
 import s from './styles.css';
 
 const data = [
-  { header: 'Network and Privacy Champions', text: 'We are hiring.', link: '#', linkText: 'Apply Now' },
-  { header: 'Developers', text: 'Want to contribute?', link: '#', linkText: 'Get In Touch' },
-  { header: 'Partners', text: 'Have an idea to help us grow?', link: '#', linkText: 'Reach Out' },
+  { header: 'NETWORK AND PRIVACY CHAMPIONS', text: 'We are hiring.', link: 'mailto:connect@lmnop.co', linkText: 'Apply Now' },
+  { header: 'DEVELOPERS', text: 'Want to contribute?', link: 'https://github.com/lmnop', linkText: 'Checkout our code' },
+  { header: 'PARTNERS', text: 'Have an idea to help us grow?', link: 'mailto:connect@lmnop.co', linkText: 'Reach Out' },
 ]
 
 const renderRow = () => {
@@ -46,7 +46,7 @@ function Outreach(props) {
               Join Us
             </div>
             <div className={s.subtitle}>
-                We are looking for like minded individuals that share our vision.
+              We are looking for like minded individuals that share our vision.
             </div>
           </div>
         </div>
