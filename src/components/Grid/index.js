@@ -8,13 +8,10 @@ function Grid(props) {
         <div className={s.gridLeft}>
         <div className={s.gridText}>
             <div className={s.title}>
-              Get off the grid
+              {props.content.title}
             </div>
             <div className={s.subtitle}>
-              The future of blockchain is almost here. Order Alpha to get started.
-            </div>
-            <div onClick={props.onClick} className={s.borderLink}>
-              Order Alpha
+              {props.content.text}
             </div>
           </div>
         </div>

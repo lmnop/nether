@@ -2,8 +2,28 @@ import React from 'react';
 import LockOutline from 'material-ui/svg-icons/action/lock-outline';
 
 import Link from '../Link';
+import Button from '../Button';
 
 import s from './styles.css';
+
+const renderLogin = (props) => {
+  return (
+    <Link to={props.showLogin ? '/unlock' : '/manager'}>
+      <div className={s.simpleLink}>
+        {props.showLogin ? 'Unlock Account' : 'My Manager'}
+        <LockOutline
+          color="#00F9B8"
+          style={{
+            width: '18px',
+            height: '18px',
+            marginLeft: '4px',
+            marginBottom: '4px',
+          }}
+        />
+      </div>
+    </Link>
+  );
+}
 
 function Header(props) {
   return (
@@ -16,26 +36,10 @@ function Header(props) {
         </Link>
       </div>
       <div className={s.right}>
-        <Link to={props.showLogin ? '/unlock' : '/manager'}>
-          <div className={s.simpleLink}>
-            {props.showLogin ? 'Unlock Account' : 'My Manager'}
-            <LockOutline
-              color="#00F9B8"
-              style={{
-                width: '18px',
-                height: '18px',
-                marginLeft: '4px',
-                marginBottom: '4px',
-              }}
-            />
-          </div>
-        </Link>
-        <div
-          className={s.borderLink}
+        <Button
           onClick={props.onClickOrder}
-        >
-          Order Alpha
-        </div>
+          text="Order Alpha"
+        />
       </div>
     </div>
   );

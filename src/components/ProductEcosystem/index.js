@@ -8,12 +8,10 @@ function ProductEcosystem(props) {
         <div className={s.gridLeft}>
           <div className={s.gridText}>
             <div className={s.title}>
-              At home, on the go & on your phone
+              {props.content.title}
             </div>
             <div className={s.subtitle}>
-               Nether’s vision is to create devices that enable end-to-end privacy to its users.
-               Nether hardware technology will allow you access to the LMNOP network and
-               will provide higher level of privacy and security.
+               {props.content.text}
             </div>
           </div>
         </div>

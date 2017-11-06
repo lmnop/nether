@@ -17,10 +17,10 @@ function Phone(props) {
         <div className={s.gridLeft}>
           <div className={s.gridText}>
             <div className={s.title}>
-              Your phone, your life
+              {props.content.title}
             </div>
             <div className={s.subtitle}>
-               Nether designed phone decentralizes not just your data but your life.
+               {props.content.text}
             </div>
           </div>
         </div>

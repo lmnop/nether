@@ -13,6 +13,8 @@ import Outreach from '../../components/Outreach';
 import Footer from '../../components/Footer';
 import Popup from '../../components/Popup';
 
+import content from './content';
+
 import s from './desktop.css';
 
 class Desktop extends Component {
@@ -38,13 +40,13 @@ class Desktop extends Component {
           showLogin={!this.props.user.email}
           onClickOrder={this.onClickOrder.bind(this)}
         />
-        <Grid />
-        <Privacy />
-        <DataPlan />
-        <ProductEcosystem />
-        <Hotspot />
-        <Router />
-        <Phone />
+        <Grid content={content.grid} />
+        <Privacy content={content.privacy} />
+        <DataPlan content={content.plan} />
+        <ProductEcosystem content={content.products} />
+        <Hotspot content={content.spot} />
+        <Router content={content.router} />
+        <Phone content={content.phone} />
         <Outreach />
         <Footer />
         <Popup

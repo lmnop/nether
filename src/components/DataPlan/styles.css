@@ -58,10 +58,10 @@
 
 .subtitle {
   font-family: var(--font-replica-light);
-  font-weight: 100;
-  line-height: 18px;
-  font-size: 12px;
-  letter-spacing: 0.6px;
   color: #4F4F4F;
   margin: 20px 0;
+}
+
+.image {
+  margin-top: 40px;
 }

@@ -1,43 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import IconButton from 'material-ui/IconButton';
-
 import Header from '../../components/Header';
 import IconRowMobile from '../../components/IconRowMobile';
 import PopupMobile from '../../components/PopupMobile';
+import Button from '../../components/Button';
+
+import content from './content';
 
 import s from './mobile.css';
-
-const iconRowPrivacy = [
-  { src: 'images/identity.png', text: 'Anonymous Identity'},
-  { src: 'images/security.png', text: 'Security Encryption'},
-  { src: 'images/access.png', text: 'Global Access'},
-  { src: 'images/mobility.png', text: 'Mobility Enabled'},
-];
-
-const iconRowHotspot = [
-  { src: 'images/wifi.png', text: '4G / LTE WI-FI'},
-  { src: 'images/connect.png', text: 'Connect up to 5 devices'},
-  { src: 'images/water.png', text: 'Water Resistant'},
-  { src: 'images/dapp.png', text: 'Integrated Dapp'},
-];
-
-const iconRowRouter = [
-  { src: 'images/wifi.png', text: '4G / LTE WI-FI'},
-  { src: 'images/connect.png', text: 'Connect up to 20 devices'},
-  { src: 'images/battery.png', text: 'Battery Reserve'},
-  { src: 'images/vpn.png', text: 'Built-In VPN'},
-];
-
-const iconRowPhone = [
-  { src: 'images/wifi.png', text: '4G / LTE WI-FI'},
-  { src: 'images/nether.png', text: 'Nether OS'},
-  { src: 'images/vpn.png', text: 'Built-In VPN'},
-  { src: 'images/dapp.png', text: 'Integrated Dapp'},
-];
-
-
 
 class Mobile extends Component {
   constructor(props) {
@@ -66,36 +37,29 @@ class Mobile extends Component {
             </div>
             <div className={s.gridTextGrid}>
               <div className={s.titleGrid}>
-                Get off the grid
+                {content.grid.title}
               </div>
               <div className={s.subtitleGrid}>
-                The future of blockchain is almost here. Order Alpha to get started.
+                {content.grid.text}
               </div>
-            </div>
-            <div className={s.linksGrid}>
-              <a href="#" className={s.simpleLinkGrid}>My Manager</a>
-              <div
-                className={s.borderLinkGrid}
+              <Button
+                text="Order Alpha"
                 onClick={this.toggleModal.bind(this)}
-              >
-                Order Alpha
-              </div>
+              />
             </div>
           </div>
         </div>
         <div className={s.modulePrivacy}>
           <div className={s.gridPrivacy}>
             <div className={s.titlePrivacy}>
-              The right to privacy exists for all people
+              {content.privacy.title}
             </div>
-            <IconRowMobile data={iconRowPrivacy} />
+            <IconRowMobile data={content.privacy.icons} />
             <div className={s.subtitlePrivacy}>
-              LMNOP is a next generation mobile data network on the blockchain.
-              It is built to give consumers control over their devices, the
-              agreements they enter into, and the network itself.
+              {content.privacy.text}
             </div>
-            <a href='#' className={s.linkPrivacy}>
-              Check out LMNOP
+            <a target="_blank" href='https://lmnop.network' className={s.linkPrivacy}>
+              Check out L|M|N|O|P
             </a>
           </div>
         </div>
@@ -104,12 +68,10 @@ class Mobile extends Component {
             <img src='/images/mdb.png' className={s.imageDataPlan} />
             <div className={s.gridTextDataPlan}>
               <div className={s.titleDataPlan}>
-                A universal data plan
+                {content.plan.title}
               </div>
               <div className={s.subtitleDataPlan}>
-                 The first hardware powered by the Mobile Data Byte Token.
-                 MDB Token will be a universal token for mobile data
-                 enabling anyone to access the LMNOP Network.
+                 {content.plan.text}
               </div>
             </div>
           </div>
@@ -121,12 +83,10 @@ class Mobile extends Component {
             </div>
             <div className={s.gridTextProductEcosystem}>
               <div className={s.titleProductEcosystem}>
-                At home, on the go & on your phone
+                {content.products.title}
               </div>
               <div className={s.subtitleProductEcosystem}>
-                 Nether’s vision is to create devices that enable end-to-end privacy to its users.
-                 Nether hardware technology will allow you access to the LMNOP network and
-                 will provide higher level of privacy and security.
+                 {content.products.text}
               </div>
             </div>
           </div>
@@ -143,13 +103,13 @@ class Mobile extends Component {
           </div>
           <div className={s.gridTextHotspot}>
             <div className={s.titleHotspot}>
-              Portable Privacy
+              {content.spot.title}
             </div>
             <div className={s.subtitleHotspot}>
-               Nether Designed Mobile Hotspot built for getting you off the grid even when you’re on it.
+               {content.spot.text}
             </div>
           </div>
-          <IconRowMobile data={iconRowHotspot} />
+          <IconRowMobile data={content.spot.icons} />
         </div>
         <div className={s.moduleRouter}>
           <div className={s.gridRouter}>
@@ -163,14 +123,13 @@ class Mobile extends Component {
           </div>
           <div className={s.gridTextRouter}>
             <div className={s.titleRouter}>
-              Privacy in your Home, Office & Enterprise
+              {content.router.title}
             </div>
             <div className={s.subtitleRouter}>
-              Nether Designed Stationary Hotspot built for privacy for all
-              your devices at home and/or office. Connect Up to 20 devices.
+              {content.router.text}
             </div>
           </div>
-          <IconRowMobile data={iconRowRouter} />
+          <IconRowMobile data={content.router.icons} />
         </div>
         <div className={s.modulePhone}>
           <div className={s.gridPhone}>
@@ -184,13 +143,13 @@ class Mobile extends Component {
           </div>
           <div className={s.gridTextPhone}>
             <div className={s.titlePhone}>
-              Your phone, your life
+              {content.phone.title}
             </div>
             <div className={s.subtitlePhone}>
-              Nether designed phone decentralizes not just your data but your life.
+              {content.phone.text}
             </div>
           </div>
-          <IconRowMobile data={iconRowPhone} />
+          <IconRowMobile data={content.phone.icons} />
         </div>
         <div className={s.moduleOutreach}>
           <div className={s.gridOutreach}>

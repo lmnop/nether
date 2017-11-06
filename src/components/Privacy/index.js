@@ -15,16 +15,14 @@ function Privacy(props) {
     <div className={s.module}>
       <div className={s.grid}>
         <div className={s.title}>
-          The right to privacy exists for all people
+          {props.content.title}
         </div>
         <IconRow data={iconRow} />
         <div className={s.subtitle}>
-          LMNOP is a next generation mobile data network on the blockchain.
-          It is built to give consumers control over their devices, the
-          agreements they enter into, and the network itself.
+          {props.content.text}
         </div>
-        <a href='#' className={s.link}>
-          Check out LMNOP
+        <a target="_blank" href='https://lmnop.network' className={s.link}>
+          Check out L|M|N|O|P
         </a>
       </div>
     </div>

@@ -22,7 +22,7 @@ function Popup(props) {
               Alpha
             </div>
             <div className={s.subtitle}>
-              0.315 Ether
+              0.3 Ether
             </div>
           </div>
           <div className={s.close} onClick={props.onClick}>
@@ -32,7 +32,7 @@ function Popup(props) {
         <div className={s.bottom}>
           <form className={s.form}>
             <a href="#" className={s.link}>
-              Not a member? Register here.
+              Comming Soon!
             </a>
             <textarea type="text" className={s.input} placeholder="Account Phrase" />
             <input type="Password" className={s.input} placeholder="Account Password" />

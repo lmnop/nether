@@ -8,12 +8,10 @@ function DataPlan(props) {
         <div className={s.gridLeft}>
           <div className={s.gridText}>
             <div className={s.title}>
-              A universal data plan
+              {props.content.title}
             </div>
             <div className={s.subtitle}>
-               The first hardware powered by the Mobile Data Byte Token.
-               MDB Token will be a universal token for mobile data
-               enabling anyone to access the LMNOP Network.
+               {props.content.text}
             </div>
           </div>
         </div>

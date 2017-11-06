@@ -18,16 +18,14 @@ function Router(props) {
           <div className={s.rightTitle}>
             Nether Node
           </div>
-          
         </div>
         <div className={s.gridRight}>
           <div className={s.gridText}>
             <div className={s.title}>
-              Privacy in your Home, Office & Enterprise
+              {props.content.title}
             </div>
             <div className={s.subtitle}>
-               Nether Designed Stationary Hotspot built for privacy for all
-               your devices at home and/or office. Connect Up to 20 devices.
+              {props.content.text}
             </div>
           </div>
         </div>

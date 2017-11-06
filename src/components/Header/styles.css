@@ -51,21 +51,3 @@
   cursor: pointer;
   opacity: 1;
 }
-
-.borderLink {
-  color: var(--green);
-  border: 2px solid var(--green);
-  padding-left: 14px;
-  padding-right: 14px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-family: var(--font-replica-bold);
-  transition: all 1s ease;
-}
-
-.borderLink:hover {
-  cursor: pointer;
-  background-color: var(--green);
-  color: var(--black);
-}
-

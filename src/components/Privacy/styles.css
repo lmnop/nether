@@ -29,11 +29,8 @@
 
 .subtitle {
   font-family: var(--font-replica-light);
-  max-width: 30%;
-  line-height: 18px;
-  font-size: 12px;
+  max-width: 460px;
   text-align: center;
-  letter-spacing: 0.6px;
   color: #828282;
 }
 

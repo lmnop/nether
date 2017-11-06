@@ -29,7 +29,7 @@
   flex: 0 1;
   flex-direction: column;
   background: linear-gradient(180deg, #0E0E0E 0%, #252525 100%);
-  padding:10px;
+  padding: 10px;
 }
 
 .gridGrid {
@@ -43,6 +43,7 @@
   background-size: 150%;
   background-repeat: no-repeat;
   background-position: right bottom;
+  min-height: 100vh;
 }
 
 .gridTextGrid {
@@ -66,11 +67,9 @@
 
 .subtitleGrid {
   font-family: var(--font-replica-light);
-  font-weight: 100;
-  line-height: 22px;
-  font-size: 15px;
-  letter-spacing: 0.3px;
+  font-size: 20px;
   margin: 20px 0;
+  width: 300px;
 }
 
 .linksGrid {
@@ -201,6 +200,7 @@
 
 .imageDataPlan {
   max-width: 70%;
+  margin-top: 40px;
 }
 
 /*****************************/
