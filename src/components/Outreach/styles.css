@@ -4,7 +4,7 @@
   align-self: stretch;
   flex: 0 1;
   flex-direction: column;
-  background-color: #333333;
+  background-color: var(--black);
 }
 
 .grid {
@@ -39,7 +39,6 @@
 
 .title {
   font-family: var(--font-replica-light);
-  font-weight: 100;
   line-height: 45px;
   font-size: 48px;
   color: #FFFFFF;
@@ -48,10 +47,7 @@
 
 .subtitle {
   font-family: var(--font-replica-light);
-  font-weight: 100;
-  line-height: 26px;
   font-size: 18px;
-  letter-spacing: 0.9px;
   color: #FFFFFF;
   margin: 20px 0 50px;
 }
@@ -121,8 +117,8 @@
   padding-right: 14px;
   padding-top: 10px;
   padding-bottom: 10px;
-  font-family: var(--font-replica-bold);
-  transition: all 1s ease;
+  font-family: var(--font-replica);
+  transition: color 1s ease, background-color 1s ease;
 }
 
 .link:hover {

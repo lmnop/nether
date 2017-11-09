@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import bip39 from 'bip39';
 
 import Drawer from 'material-ui/Drawer';
 import Menu from 'material-ui/Menu';
@@ -25,6 +26,8 @@ class UnlockPage extends Component {
 
     this.state = {
       width: window.innerWidth,
+      mnemonic: '',
+      error: '',
     };
   }
 
@@ -44,6 +47,38 @@ class UnlockPage extends Component {
     this.setState({
       width: window.innerWidth,
     });
+  }
+
+  checkMnemonic(mnemonic) {
+    if (mnemonic.trim().split(/\s+/g).length >= 12) {
+      if (bip39.validateMnemonic(mnemonic)) {
+        //this.props.useWallet(mnemonic);
+
+        this.setState({
+          error: '',
+        });
+      } else {
+        this.setState({
+          error: 'account phrase is invalid',
+        });
+      }
+    } else {
+      this.setState({
+        error: 'account phrase must be 12 words',
+      });
+    }
+  }
+
+  renderBoxFooter(text) {
+    if (text) {
+      return (
+        <div className={s.boxFooter}>
+          {text}
+        </div>
+      );
+    }
+
+    return <div className={s.blankBoxFooter}/>
   }
 
   render() {
@@ -69,10 +104,22 @@ class UnlockPage extends Component {
                   rows="4"
                   cols="50"
                   className={s.mnemonic}
+                  onChange={(event) => {
+                    this.setState({
+                      mnemonic: event.target.value,
+                    });
+                  }}
+                  value={this.state.mnemonic}
                 />
               </div>
+              {this.renderBoxFooter(this.state.error)}
             </div>
-            <div className={s.button}>
+            <div
+              className={s.button}
+              onClick={() => {
+                this.checkMnemonic(this.state.mnemonic);
+              }}
+            >
               Unlock Account
             </div>
           </div>

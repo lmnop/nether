@@ -2,7 +2,7 @@ import React from 'react';
 import s from './styles.css';
 
 const data = [
-  { header: 'NETWORK AND PRIVACY CHAMPIONS', text: 'We are hiring.', link: 'mailto:connect@lmnop.co', linkText: 'Apply Now' },
+  { header: 'NETWORK & PRIVACY CHAMPIONS', text: 'We are hiring.', link: 'mailto:connect@lmnop.co', linkText: 'Apply Now' },
   { header: 'DEVELOPERS', text: 'Want to contribute?', link: 'https://github.com/lmnop', linkText: 'Checkout our code' },
   { header: 'PARTNERS', text: 'Have an idea to help us grow?', link: 'mailto:connect@lmnop.co', linkText: 'Reach Out' },
 ]

@@ -57,7 +57,13 @@
   font-family: var(--font-replica-light);
   margin-top: -20px;
   background-color: var(--black);
-  color: var(--white);
+  color: var(--red);
+}
+
+.blankBoxFooter {
+  z-index: 10;
+  margin-top: -20px;
+  height: 36px;
 }
 
 .mnemonic {

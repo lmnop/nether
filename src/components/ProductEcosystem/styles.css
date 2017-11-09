@@ -3,7 +3,7 @@
 .module {
   align-self: stretch;
   flex: 0 1;
-  background: linear-gradient(180deg, #0E0E0E 0%, #252525 100%);
+  background: var(--black);
   flex-direction: column;
 }
 
