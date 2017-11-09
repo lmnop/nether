@@ -4,13 +4,6 @@ import s from './styles.css';
 import IconRow from '../IconRow';
 
 function Router(props) {
-  const iconRow = [
-    { src: 'images/wifi.png', text: '4G / LTE WI-FI'},
-    { src: 'images/connect.png', text: 'Connect up to 20 devices'},
-    { src: 'images/battery.png', text: 'Battery Reserve'},
-    { src: 'images/vpn.png', text: 'Built-In VPN'},
-  ];
-
   return (
     <div className={s.module}>
       <div className={s.grid}>
@@ -30,7 +23,7 @@ function Router(props) {
           </div>
         </div>
       </div>
-      <IconRow data={iconRow} />
+      <IconRow data={props.content.icons} />
     </div>
   );
 }

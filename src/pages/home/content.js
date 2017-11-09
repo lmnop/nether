@@ -5,7 +5,7 @@ export default {
   },
   privacy: {
     title: 'The right to privacy exists for all people',
-    text: `Nether devices are powered by the L|M|N|O|P network. L|M|N|O|P is the people's mobile data network. The network is built to give people full control over their devices, the agreements they enter into, and the network itself. We believe people deserve a network that is deserving of its customers.`,
+    text: `Nether devices are powered by the L|M|N|O|P network. The network is built to give people full control over their devices, the agreements they enter into, and the network itself. We believe people deserve a network that is deserving of its customers.`,
     icons: [
       { src: 'images/identity.png', text: 'ANONYMOUS IDENTITY'},
       { src: 'images/security.png', text: 'SECURITY ENCRYPTION'},
@@ -15,11 +15,11 @@ export default {
   },
   plan: {
     title: 'A universal data plan',
-    text: 'The first hardware powered by the Mobile Data Byte Token. MDB Token will be a universal token for mobile data enabling anyone to access the L|M|N|O|P Network.',
+    text: 'The first hardware powered by the Mobile Data Byte Token. MDB is a universal token for mobile data, enabling anyone to access the L|M|N|O|P Network.',
   },
   products: {
-    title: 'At home, on the go & on your phone',
-    text: 'Nether’s vision is to create devices that enable end-to-end privacy to its users. Nether hardware technology will allow you access to the LMNOP network and will provide higher level of privacy and security.',
+    title: 'At home & on the go',
+    text: `Nether Devices enable end-to-end privacy and security, wether you are at home or on the go.`,
   },
   spot: {
     title: 'Portable Privacy',

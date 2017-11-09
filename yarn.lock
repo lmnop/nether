@@ -4090,7 +4090,7 @@ linkify-it@^2.0.0:
 
 "lmnop-contracts@git+https://github.com/lmnop/contracts.git":
   version "1.0.0"
-  resolved "git+https://github.com/lmnop/contracts.git#2af5bf7deb8c97cafd8fb50e443fe02ceb3af12d"
+  resolved "git+https://github.com/lmnop/contracts.git#356759546e4d611479850171c4a661af277bd090"
   dependencies:
     dotenv "^4.0.0"
     truffle-hdwallet-provider "^0.0.3"

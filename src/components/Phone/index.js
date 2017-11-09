@@ -4,13 +4,6 @@ import s from './styles.css';
 import IconRow from '../IconRow';
 
 function Phone(props) {
-  const iconRow = [
-    { src: 'images/wifi.png', text: '4G / LTE WI-FI'},
-    { src: 'images/nether.png', text: 'Nether OS'},
-    { src: 'images/vpn.png', text: 'Built-In VPN'},
-    { src: 'images/dapp.png', text: 'Integrated Dapp'},
-  ];
-
   return (
     <div className={s.module}>
       <div className={s.grid}>
@@ -30,7 +23,7 @@ function Phone(props) {
           </div>
         </div>
       </div>
-      <IconRow data={iconRow} />
+      <IconRow data={props.content.icons} />
     </div>
   );
 }
