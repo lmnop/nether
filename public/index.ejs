@@ -19,11 +19,12 @@
       @font-face { font-family: ReplicaLight; src: url('fonts/lineto-replica-pro-light.ttf'); }
     </style>
   </head>
-  <body style="opacity: 0; transition: opacity 1s ease" onload="js_Load()">
+  <body style="background-color: #000000; opacity: 0; transition: all 1s ease" onload="js_Load()">
     <div id="container"></div>
     <script>
       function js_Load() {
         document.body.style.opacity=1;
+        document.body.style["background-color"]="#FFFFFF";
       }
 
       window.environment = '<%= environment %>';

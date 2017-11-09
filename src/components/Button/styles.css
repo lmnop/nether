@@ -8,8 +8,8 @@
   padding-right: 14px;
   padding-top: 10px;
   padding-bottom: 10px;
-  font-family: var(--font-replica-bold);
-  transition: all 1s ease;
+  font-family: var(--font-replica);
+  transition: color 1s ease, background-color 1s ease;
 }
 
 .button:hover {

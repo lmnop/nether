@@ -17,3 +17,4 @@ firebase-debug.log
 # Random
 **.DS_Store
 yarn-error.log
+.env

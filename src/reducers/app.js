@@ -1,9 +1,8 @@
 import { Actions } from '../constants';
 
 const initialState = {
-  mnemonic: null,
-  address: null,
-  balance: 0,
+  loading: false,
+  error: '',
 };
 
 export default function reducer(state = initialState, action) {
@@ -13,10 +12,19 @@ export default function reducer(state = initialState, action) {
       return initialState;
     }
 
-    case Actions.USER_SET: {
+    case Actions.APP_LOADING: {
       return {
         ...state,
-        ...action.payload,
+        loading: action.payload,
+        error: '',
+      };
+    }
+
+    case Actions.APP_ERROR: {
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
       };
     }
 

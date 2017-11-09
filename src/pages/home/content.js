@@ -1,7 +1,7 @@
 export default {
   grid: {
     title: 'Get off the grid',
-    text: 'Order an Alpha device today and start paying for your mobile data with crypto.',
+    text: 'Start paying for your mobile data with crypto today.',
   },
   privacy: {
     title: 'The right to privacy exists for all people',

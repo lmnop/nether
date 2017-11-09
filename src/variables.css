@@ -3,7 +3,7 @@
    * Typography
    * ======================================================================== */
 
-  --font-family: 'Replica', 'Roboto', sans-serif;
+  --font-family: 'Roboto', sans-serif;
   --font-replica: 'Replica', 'Roboto', sans-serif;
   --font-replica-bold: 'ReplicaBold', 'Roboto', sans-serif;
   --font-replica-light: 'ReplicaLight', 'Roboto', sans-serif;
@@ -45,6 +45,9 @@
   --black: #000000;
   --white: #FFFFFF;
   --green: #00F9B8;
+  --purple: #8700D1;
+
+  --50white: #80FFFFFF;
 
   /*
    * Components
