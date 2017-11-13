@@ -1,8 +1,9 @@
-@import '../../variables.css';
+@import '../../../variables.css';
 
 .module {
   align-self: stretch;
   flex: 0 1;
+  background: var(--black);
   flex-direction: column;
 }
 
@@ -15,11 +16,11 @@
   align-self: stretch;
   margin: 30px;
   height: 100vh;
-  background: url('../../../public/images/node.png'),
-  linear-gradient(to right, #8F00FF 0%, #8F00FF 50%, #FFF 50%, #FFF 100%);
-  background-size: cover;
+  background-image: url('../../../../public/images/familyshot.png'),
+  linear-gradient(to right, #7400CF 0%, #7400CF 50%, #000 50%, #000 100%);
+  background-size: contain;
   background-repeat: no-repeat;
-  background-position: left bottom;
+  background-position: right top;
 }
 
 .gridLeft {
@@ -28,23 +29,13 @@
   flex: 1;
   position: relative;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
-}
-
-.gridRight {
-  align-self: stretch;
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
 }
 
 .gridText {
-  margin-left: 150px;
-  margin-top: 50px;
-  width: 400px;
+  margin-left: 100px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -57,24 +48,14 @@
   font-weight: 100;
   line-height: 54px;
   font-size: 54px;
-  color: #333333;
+  color: #F2F2F2;
+  letter-spacing: 1.44px;
   margin: 0;
 }
 
 .subtitle {
   font-family: var(--font-replica-light);
-  font-weight: 100;
-  line-height: 26px;
-  font-size: 18px;
-  letter-spacing: 0.9px;
-  color: #828282;
+  color: #F2F2F2;
   margin: 20px 0;
-}
-
-.rightTitle {
-  width: 100px;
-  margin: 130px 0 0 130px;
-  line-height: 30px;
-  font-size: 30px;
-  color: #FFFFFF;
+  font-size: 18px;
 }

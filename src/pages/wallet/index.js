@@ -8,8 +8,10 @@ import MenuItem from 'material-ui/MenuItem';
 import Subheader from 'material-ui/Subheader';
 import Divider from 'material-ui/Divider';
 
-import LockOpen from 'material-ui/svg-icons/action/lock-open';
-import PersonAdd from 'material-ui/svg-icons/social/person-add';
+import AccountBalanceWallet from 'material-ui/svg-icons/action/account-balance-wallet';
+import Receipt from 'material-ui/svg-icons/action/receipt';
+import Devices from 'material-ui/svg-icons/device/devices';
+import DataUsage from 'material-ui/svg-icons/device/data-usage';
 
 import history from '../../history';
 
@@ -21,21 +23,21 @@ import * as userActions from '../../actions/user';
 
 import s from './styles.css';
 
-class UnlockPage extends Component {
+class WalletPage extends Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
       width: window.innerWidth,
-      mnemonic: '',
-      error: '',
     };
   }
 
   componentWillMount() {
-    if (!this.props.showLogin) {
-      history.push('wallet');
+    if (this.props.showLogin) {
+      history.push('unlock');
+    } else {
+      this.props.useWallet(this.props.user.mnemonic);
     }
   }
 
@@ -44,8 +46,8 @@ class UnlockPage extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.showLogin && !nextProps.showLogin) {
-      history.push('wallet');
+    if (!this.props.showLogin && nextProps.showLogin) {
+      history.push('unlock');
     }
   }
 
@@ -59,39 +61,9 @@ class UnlockPage extends Component {
     });
   }
 
-  checkMnemonic(mnemonic) {
-    if (mnemonic.trim().split(/\s+/g).length >= 12) {
-      if (bip39.validateMnemonic(mnemonic)) {
-        this.props.useWallet(mnemonic);
-
-        this.setState({
-          error: '',
-        });
-      } else {
-        this.setState({
-          error: 'account phrase is invalid',
-        });
-      }
-    } else {
-      this.setState({
-        error: 'account phrase must be 12 words',
-      });
-    }
-  }
-
-  renderBoxFooter(text) {
-    if (text) {
-      return (
-        <div className={s.boxFooter}>
-          {text}
-        </div>
-      );
-    }
-
-    return <div className={s.blankBoxFooter}/>
-  }
-
   render() {
+    console.log(this.props.user);
+
     return (
       <Layout>
         <div className={s.container}>
@@ -105,32 +77,33 @@ class UnlockPage extends Component {
             <div className={s.title}>
               Device<br/>Manager
             </div>
-            <div className={s.box}>
-              <div className={s.boxHeader}>
-                Account Phrase
-              </div>
-              <div className={s.boxBody}>
-                <textarea
-                  rows="4"
-                  cols="50"
-                  className={s.mnemonic}
-                  onChange={(event) => {
-                    this.setState({
-                      mnemonic: event.target.value,
-                    });
-                  }}
-                  value={this.state.mnemonic}
-                />
-              </div>
-              {this.renderBoxFooter(this.state.error)}
+            <Subheader
+              style={{
+                color: "#FFFFFF",
+              }}
+            >
+              Public Key
+            </Subheader>
+            <div className={s.address}>
+              {this.props.user.address}
+            </div>
+            <Subheader
+              style={{
+                color: "#FFFFFF",
+              }}
+            >
+              Ethereum Balance
+            </Subheader>
+            <div className={s.address}>
+              Ξ {this.props.user.balanceEth}
             </div>
             <div
               className={s.button}
               onClick={() => {
-                this.checkMnemonic(this.state.mnemonic);
+                this.props.resetApp();
               }}
             >
-              Unlock Account
+              Lock Account
             </div>
           </div>
           <Drawer
@@ -142,19 +115,39 @@ class UnlockPage extends Component {
             }}
           >
             <Menu>
-              <Link to="/unlock">
+              <Link to="/wallet">
                 <MenuItem
-                  primaryText="Unlock Account"
-                  leftIcon={<LockOpen color="#FFFFFF" />}
+                  primaryText="My Wallet"
+                  leftIcon={<AccountBalanceWallet color="#FFFFFF" />}
                   style={{
                     color: "#FFFFFF",
                   }}
                 />
               </Link>
-              <Link to="/create">
+              <Link to="/purchases">
                 <MenuItem
-                  primaryText="Create Account"
-                  leftIcon={<PersonAdd color="#FFFFFF" />}
+                  primaryText="Purchases"
+                  leftIcon={<Receipt color="#FFFFFF" />}
+                  style={{
+                    color: "#FFFFFF",
+                    opacity: 0.5,
+                  }}
+                />
+              </Link>
+              <Link to="/devices">
+                <MenuItem
+                  primaryText="Registered Devices"
+                  leftIcon={<Devices color="#FFFFFF" />}
+                  style={{
+                    color: "#FFFFFF",
+                    opacity: 0.5,
+                  }}
+                />
+              </Link>
+              <Link to="/usage">
+                <MenuItem
+                  primaryText="Data Usage"
+                  leftIcon={<DataUsage color="#FFFFFF" />}
                   style={{
                     color: "#FFFFFF",
                     opacity: 0.5,
@@ -205,6 +198,7 @@ const bindStore = (state) => {
 
 const bindActions = dispatch => ({
   useWallet: (mnemonic) => dispatch(userActions.useWallet(mnemonic)),
+  resetApp: () => dispatch(userActions.resetApp()),
 });
 
-export default connect(bindStore, bindActions)(UnlockPage);
+export default connect(bindStore, bindActions)(WalletPage);

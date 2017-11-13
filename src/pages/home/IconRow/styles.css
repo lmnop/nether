@@ -1,10 +1,10 @@
-@import '../../variables.css';
+@import '../../../variables.css';
 
 .row {
   display: flex;
   flex: 1;
   align-self: stretch;
-  margin: 30px 0;
+  margin: 30px;
   align-items: center;
   justify-content: center;
 }
@@ -29,16 +29,16 @@
 }
 
 .itemImage {
-  height: 60px;
+  height: 90px;
   margin-bottom: 40px; 
 }
 
 .itemTitle {
   font-family: var(--font-replica-light);
-  line-height: 13px;
-  font-size: 9px;
+  line-height: 18px;
+  font-size: 12px;
   text-align: center;
-  letter-spacing: 0.9px;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
   color: #4F4F4F;
 }

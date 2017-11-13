@@ -30,6 +30,12 @@
   justify-content: center;
 }
 
+.loading {
+  -webkit-animation:spin 4s linear infinite;
+  -moz-animation:spin 4s linear infinite;
+  animation:spin 4s linear infinite;
+}
+
 .right {
   display: flex;
   flex: 1;
@@ -41,13 +47,35 @@
 
 .simpleLink {
   color: var(--green);
-  margin-bottom: 10px;
-  font-family: var(--font-replica-bold);
+  font-family: var(--font-replica-light);
   opacity: 0.8;
   transition: all 1s ease;
+  margin-right: 10px;
 }
 
 .simpleLink:hover {
   cursor: pointer;
   opacity: 1;
 }
+
+.button {
+  color: var(--green);
+  border: 2px solid var(--green);
+  margin: 10px;
+  padding-left: 14px;
+  padding-right: 14px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: var(--font-replica);
+  transition: color 1s ease, background-color 1s ease;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: var(--green);
+  color: var(--black);
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }

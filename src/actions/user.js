@@ -35,18 +35,39 @@ const getEthereum = async (mnemonic) => {
   };
 };
 
-export const getContract = () => async (dispatch, getState) => {
+const getBalance = (web3, address) => new Promise((resolve, reject) => {
+  web3.eth.getBalance(address, (error, value) => {
+    return resolve(value);
+  });
+});
+
+export const resetApp = () => (dispatch) => {
+  dispatch({
+    type: Actions.APP_RESET,
+  });
+};
+
+export const useWallet = (mnemonic) => async (dispatch) => {
   try {
     dispatch({
       type: Actions.APP_LOADING,
       payload: true,
     });
 
-    const state = getState();
+    const { provider, web3 } = await getEthereum(mnemonic);
 
-    if (state.user.mnemonic) {
-      const ethereum = await getEthereum(state.user.mnemonic);
-    }
+    const address = provider.address;
+    const balance = await getBalance(web3, address);
+
+    dispatch({
+      type: Actions.USER_SET,
+      payload: {
+        mnemonic,
+        address,
+        balance,
+        balanceEth: web3.utils.fromWei(balance, 'ether'),
+      },
+    });
 
     dispatch({
       type: Actions.APP_LOADING,

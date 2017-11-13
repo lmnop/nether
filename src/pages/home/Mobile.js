@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Header from '../../components/Header';
-import IconRowMobile from '../../components/IconRowMobile';
-import PopupMobile from '../../components/PopupMobile';
-import Button from '../../components/Button';
+import Link from '../../components/Link';
+
+import IconRowMobile from './IconRowMobile';
 
 import content from './content';
 
@@ -42,10 +42,11 @@ class Mobile extends Component {
               <div className={s.subtitleGrid}>
                 {content.grid.text}
               </div>
-              <Button
-                text="Order Alpha"
-                onClick={this.toggleModal.bind(this)}
-              />
+              <Link to="/alpha">
+                <div className={s.button}>
+                  Order Alpha
+                </div>
+              </Link>
             </div>
           </div>
         </div>
@@ -167,12 +168,12 @@ class Mobile extends Component {
               <div className={s.rowOutreach}>
                 <div className={s.itemOutreach}>
                   <div className={s.headerOutreach}>
-                    NETWORK AND PRIVACY CHAMPIONS
+                    NETWORK & PRIVACY CHAMPIONS
                   </div>
                   <div className={s.textOutreach}>
                     We are hiring.
                   </div>
-                  <a href="mailto:connect@lmnop.co" className={s.linkOutreach}>
+                  <a href="mailto:connect@lmnop.co" className={s.button}>
                     Apply Now
                   </a>
                 </div>
@@ -183,7 +184,7 @@ class Mobile extends Component {
                   <div className={s.textOutreach}>
                     Want to contribute?
                   </div>
-                  <a href='https://github.com/lmnop' className={s.linkOutreach}>
+                  <a href='https://github.com/lmnop' className={s.button}>
                     Checkout our code
                   </a>
                 </div>
@@ -194,7 +195,7 @@ class Mobile extends Component {
                   <div className={s.textOutreach}>
                     Have an idea to help us grow?
                   </div>
-                  <a href="mailto:connect@lmnop.co" className={s.linkOutreach}>
+                  <a href="mailto:connect@lmnop.co" className={s.button}>
                     Reach Out
                   </a>
                 </div>
@@ -210,10 +211,6 @@ class Mobile extends Component {
             <a href='https://github.com/lmnop' className={s.linkFooter}>Developers</a>
           </div>
         </div>
-        <PopupMobile
-          isModalOpen={this.state.isModalOpen}
-          onClick={this.toggleModal.bind(this)}
-        />
       </div>
     );
   }

@@ -2,44 +2,26 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Header from '../../components/Header';
-import Grid from '../../components/Grid';
-import Privacy from '../../components/Privacy';
-import DataPlan from '../../components/DataPlan';
-import ProductEcosystem from '../../components/ProductEcosystem';
-import Hotspot from '../../components/Hotspot';
-import Router from '../../components/Router';
-import Phone from '../../components/Phone';
-import Outreach from '../../components/Outreach';
 import Footer from '../../components/Footer';
-import Popup from '../../components/Popup';
+
+import Grid from './Grid';
+import Privacy from './Privacy';
+import DataPlan from './DataPlan';
+import ProductEcosystem from './ProductEcosystem';
+import Hotspot from './Hotspot';
+import Router from './Router';
+import Phone from './Phone';
+import Outreach from './Outreach';
 
 import content from './content';
 
 import s from './desktop.css';
 
 class Desktop extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      showOrder: false,
-      showManager: false,
-    };
-  }
-
-  onClickOrder() {
-    this.setState({
-      showOrder: !this.state.showOrder,
-    });
-  }
-
   render() {
     return (
       <div className={s.container}>
-        <Header
-          showLogin={!this.props.user.email}
-          onClickOrder={this.onClickOrder.bind(this)}
-        />
+        <Header />
         <Grid content={content.grid} />
         <Privacy content={content.privacy} />
         <DataPlan content={content.plan} />
@@ -49,10 +31,6 @@ class Desktop extends Component {
         <Phone content={content.phone} />
         <Outreach />
         <Footer />
-        <Popup
-          isModalOpen={this.state.showOrder}
-          onClick={this.onClickOrder.bind(this)}
-        />
       </div>
     );
   }
@@ -60,12 +38,8 @@ class Desktop extends Component {
 
 const bindStore = (state) => {
   return {
-    user: state.user,
+    showLogin: !state.user.mnemonic,
   };
 };
 
-const bindActions = dispatch => ({
-
-});
-
-export default connect(bindStore, bindActions)(Desktop);
+export default connect(bindStore)(Desktop);

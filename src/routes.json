@@ -10,6 +10,16 @@
     "chunk": "main"
   },
   {
+    "path": "/create",
+    "page": "./pages/create",
+    "chunk": "main"
+  },
+  {
+    "path": "/wallet",
+    "page": "./pages/wallet",
+    "chunk": "main"
+  },
+  {
     "path": "/error",
     "page": "./pages/error",
     "chunk": "main"

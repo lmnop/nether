@@ -1,4 +1,4 @@
-@import '../../variables.css';
+@import '../../../variables.css';
 
 .module {
   align-self: stretch;
@@ -14,10 +14,10 @@
   justify-content: flex-start;
   align-self: stretch;
   margin: 30px;
-  height: 100vh;
-  background-image: url('../../../public/images/spot.png'),
+  height: 120vh;
+  background-image: url('../../../../public/images/phones.png'),
   linear-gradient(to right, #FFF 0%, #FFF 50%, #8F00FF 50%, #8F00FF 100%);
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -36,6 +36,8 @@
   align-self: stretch;
   display: flex;
   flex: 1;
+  align-items: center;
+  justify-content: center;
 }
 
 .gridText {
@@ -69,7 +71,7 @@
 
 .rightTitle {
   width: 100px;
-  margin: 30px 0 0 30px;
+  margin-left: 50px;
   line-height: 30px;
   font-size: 30px;
   color: #FFFFFF;

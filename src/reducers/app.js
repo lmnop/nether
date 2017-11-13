@@ -21,6 +21,8 @@ export default function reducer(state = initialState, action) {
     }
 
     case Actions.APP_ERROR: {
+      console.log(action.payload);
+
       return {
         ...state,
         error: action.payload,
