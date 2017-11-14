@@ -2,12 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
-import Drawer from 'material-ui/Drawer';
-import Menu from 'material-ui/Menu';
-import MenuItem from 'material-ui/MenuItem';
-import Subheader from 'material-ui/Subheader';
-import Divider from 'material-ui/Divider';
-
 import {
   Table,
   TableBody,
@@ -17,17 +11,13 @@ import {
   TableRowColumn,
 } from 'material-ui/Table';
 
-import AccountBalanceWallet from 'material-ui/svg-icons/action/account-balance-wallet';
-import Receipt from 'material-ui/svg-icons/action/receipt';
-import Devices from 'material-ui/svg-icons/device/devices';
-import DataUsage from 'material-ui/svg-icons/device/data-usage';
 import AutoRenew from 'material-ui/svg-icons/action/autorenew';
 
 import history from '../../history';
 
 import Layout from '../../components/Layout';
 import Header from '../../components/Header';
-import Link from '../../components/Link';
+import Sidebar from '../../components/Sidebar';
 
 import * as userActions from '../../actions/user';
 
@@ -219,83 +209,7 @@ class PurchasesPage extends Component {
               </TableBody>
             </Table>
           </div>
-          <Drawer
-            open={true}
-            containerStyle={{
-              backgroundColor: '#8700D1',
-              paddingTop: 120,
-              width: 280,
-            }}
-          >
-            <Menu>
-              <Link to="/wallet">
-                <MenuItem
-                  primaryText="Wallet"
-                  leftIcon={<AccountBalanceWallet color="#FFFFFF" />}
-                  style={{
-                    color: "#FFFFFF",
-                    opacity: 0.5,
-                  }}
-                />
-              </Link>
-              <Link to="/purchases">
-                <MenuItem
-                  primaryText="Purchases"
-                  leftIcon={<Receipt color="#FFFFFF" />}
-                  style={{
-                    color: "#FFFFFF",
-                  }}
-                />
-              </Link>
-              <Link to="/devices">
-                <MenuItem
-                  primaryText="Devices (Soon)"
-                  leftIcon={<Devices color="#FFFFFF" />}
-                  style={{
-                    color: "#FFFFFF",
-                    opacity: 0.5,
-                  }}
-                  disabled
-                />
-              </Link>
-              <Link to="/usage">
-                <MenuItem
-                  primaryText="Usage (Soon)"
-                  leftIcon={<DataUsage color="#FFFFFF" />}
-                  style={{
-                    color: "#FFFFFF",
-                    opacity: 0.5,
-                  }}
-                  disabled
-                />
-              </Link>
-              <Divider />
-              <Subheader
-                style={{
-                  color: "#FFFFFF",
-                }}
-              >
-                Nether Devices
-              </Subheader>
-              <Link to="/alpha">
-                <MenuItem
-                  primaryText="Alpha (Order)"
-                  style={{
-                    color: "#FFFFFF",
-                    opacity: 0.8,
-                  }}
-                />
-              </Link>
-              <MenuItem
-                primaryText="Spot (Soon)"
-                style={{
-                  color: "#FFFFFF",
-                  opacity: 0.5,
-                }}
-                disabled
-              />
-            </Menu>
-          </Drawer>
+          <Sidebar page="purchases" />
         </div>
       </Layout>
     );

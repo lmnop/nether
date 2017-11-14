@@ -2,20 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import bip39 from 'bip39';
 
-import Drawer from 'material-ui/Drawer';
-import Menu from 'material-ui/Menu';
-import MenuItem from 'material-ui/MenuItem';
-import Subheader from 'material-ui/Subheader';
-import Divider from 'material-ui/Divider';
-
-import LockOpen from 'material-ui/svg-icons/action/lock-open';
-import PersonAdd from 'material-ui/svg-icons/social/person-add';
-
 import history from '../../history';
 
 import Layout from '../../components/Layout';
 import Header from '../../components/Header';
-import Link from '../../components/Link';
+import Sidebar from '../../components/Sidebar';
 
 import * as userActions from '../../actions/user';
 
@@ -186,61 +177,7 @@ class CreatePage extends Component {
               Create Account
             </div>
           </div>
-          <Drawer
-            open={true}
-            containerStyle={{
-              backgroundColor: '#8700D1',
-              paddingTop: 120,
-              width: 280,
-            }}
-          >
-            <Menu>
-              <Link to="/unlock">
-                <MenuItem
-                  primaryText="Unlock Account"
-                  leftIcon={<LockOpen color="#FFFFFF" />}
-                  style={{
-                    color: "#FFFFFF",
-                    opacity: 0.5,
-                  }}
-                />
-              </Link>
-              <Link to="/create">
-                <MenuItem
-                  primaryText="Create Account"
-                  leftIcon={<PersonAdd color="#FFFFFF" />}
-                  style={{
-                    color: "#FFFFFF",
-                  }}
-                />
-              </Link>
-              <Divider />
-              <Subheader
-                style={{
-                  color: "#FFFFFF",
-                }}
-              >
-                Devices
-              </Subheader>
-              <Link to="/alpha">
-                <MenuItem
-                  primaryText="Alpha (Order)"
-                  style={{
-                    color: "#FFFFFF",
-                    opacity: 0.8,
-                  }}
-                />
-              </Link>
-              <MenuItem
-                primaryText="Spot (Soon)"
-                style={{
-                  color: "#FFFFFF",
-                  opacity: 0.5,
-                }}
-                disabled
-              />
-            </Menu>
-          </Drawer>
+          <Sidebar page="create" />
         </div>
       </Layout>
     );
