@@ -8,10 +8,20 @@ import MenuItem from 'material-ui/MenuItem';
 import Subheader from 'material-ui/Subheader';
 import Divider from 'material-ui/Divider';
 
+import {
+  Table,
+  TableBody,
+  TableHeader,
+  TableHeaderColumn,
+  TableRow,
+  TableRowColumn,
+} from 'material-ui/Table';
+
 import AccountBalanceWallet from 'material-ui/svg-icons/action/account-balance-wallet';
 import Receipt from 'material-ui/svg-icons/action/receipt';
 import Devices from 'material-ui/svg-icons/device/devices';
 import DataUsage from 'material-ui/svg-icons/device/data-usage';
+import AutoRenew from 'material-ui/svg-icons/action/autorenew';
 
 import history from '../../history';
 
@@ -23,7 +33,7 @@ import * as userActions from '../../actions/user';
 
 import s from './styles.css';
 
-class WalletPage extends Component {
+class PurchasesPage extends Component {
 
   constructor(props) {
     super(props);
@@ -77,44 +87,101 @@ class WalletPage extends Component {
             <div className={s.title}>
               Device<br/>Manager
             </div>
-            <Subheader
-              style={{
-                color: "#FFFFFF",
+            <Table
+              selectable={false}
+              wrapperStyle={{
+                marginBottom: 40,
               }}
             >
-              Email
-            </Subheader>
-            <div className={s.address}>
-              {this.props.user.email}
-            </div>
-            <Subheader
-              style={{
-                color: "#FFFFFF",
-              }}
+              <TableHeader
+                displaySelectAll={false}
+                adjustForCheckbox={false}
+              >
+                <TableRow>
+                  <TableHeaderColumn style={{ width: 20 }}>
+                    Status
+                  </TableHeaderColumn>
+                  <TableHeaderColumn style={{ width: 100 }}>
+                    Device
+                  </TableHeaderColumn>
+                  <TableHeaderColumn style={{ width: 60 }}>
+                    Ether
+                  </TableHeaderColumn>
+                  <TableHeaderColumn style={{ minWidth: 310 }}>
+                    Transaction TX
+                  </TableHeaderColumn>
+                </TableRow>
+              </TableHeader>
+              <TableBody
+                displayRowCheckbox={false}
+              >
+                <TableRow>
+                  <TableRowColumn style={{ width: 20 }}>
+                    <AutoRenew color="#FFFFFF" />
+                  </TableRowColumn>
+                  <TableRowColumn style={{ width: 100 }}>
+                    Nether Alpha
+                  </TableRowColumn>
+                  <TableRowColumn style={{ width: 60 }}>
+                    0.3
+                  </TableRowColumn>
+                  <TableRowColumn style={{ minWidth: 310 }}>
+                    <a href={`https://etherscan.io/tx/${123}`} target="_blank">
+                      0x87c694e72682a032c16cc60333dbdb22c8f8a932058cddd3f3dce08f953fa873
+                    </a>
+                  </TableRowColumn>
+                </TableRow>
+              </TableBody>
+            </Table>
+            <Table
+              selectable={false}
             >
-              Public Key
-            </Subheader>
-            <div className={s.address}>
-              {this.props.user.address}
-            </div>
-            <Subheader
-              style={{
-                color: "#FFFFFF",
-              }}
-            >
-              Ethereum Balance
-            </Subheader>
-            <div className={s.address}>
-              Ξ {this.props.user.balanceEth}
-            </div>
-            <div
-              className={s.button}
-              onClick={() => {
-                this.props.resetApp();
-              }}
-            >
-              Lock Account
-            </div>
+              <TableHeader
+                displaySelectAll={false}
+                adjustForCheckbox={false}
+              >
+                <TableRow>
+                  <TableHeaderColumn style={{ width: 20 }}>
+                    Status
+                  </TableHeaderColumn>
+                  <TableHeaderColumn style={{ width: 60 }}>
+                    Data
+                  </TableHeaderColumn>
+                  <TableHeaderColumn style={{ width: 60 }}>
+                    Ether/GB
+                  </TableHeaderColumn>
+                  <TableHeaderColumn style={{ width: 60 }}>
+                    Total Ether
+                  </TableHeaderColumn>
+                  <TableHeaderColumn style={{ minWidth: 310 }}>
+                    Transaction TX
+                  </TableHeaderColumn>
+                </TableRow>
+              </TableHeader>
+              <TableBody
+                displayRowCheckbox={false}
+              >
+                <TableRow>
+                  <TableRowColumn style={{ width: 20 }}>
+                    <AutoRenew color="#FFFFFF" />
+                  </TableRowColumn>
+                  <TableRowColumn style={{ width: 60 }}>
+                    10 GB
+                  </TableRowColumn>
+                  <TableRowColumn style={{ width: 60 }}>
+                    0.03
+                  </TableRowColumn>
+                  <TableRowColumn style={{ width: 60 }}>
+                    0.3
+                  </TableRowColumn>
+                  <TableRowColumn style={{ minWidth: 310 }}>
+                    <a href={`https://etherscan.io/tx/${123}`} target="_blank">
+                      0x87c694e72682a032c16cc60333dbdb22c8f8a932058cddd3f3dce08f953fa873
+                    </a>
+                  </TableRowColumn>
+                </TableRow>
+              </TableBody>
+            </Table>
           </div>
           <Drawer
             open={true}
@@ -131,6 +198,7 @@ class WalletPage extends Component {
                   leftIcon={<AccountBalanceWallet color="#FFFFFF" />}
                   style={{
                     color: "#FFFFFF",
+                    opacity: 0.5,
                   }}
                 />
               </Link>
@@ -140,7 +208,6 @@ class WalletPage extends Component {
                   leftIcon={<Receipt color="#FFFFFF" />}
                   style={{
                     color: "#FFFFFF",
-                    opacity: 0.5,
                   }}
                 />
               </Link>
@@ -213,4 +280,4 @@ const bindActions = dispatch => ({
   resetApp: () => dispatch(userActions.resetApp()),
 });
 
-export default connect(bindStore, bindActions)(WalletPage);
+export default connect(bindStore, bindActions)(PurchasesPage);

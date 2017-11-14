@@ -20,6 +20,11 @@
     "chunk": "main"
   },
   {
+    "path": "/purchases",
+    "page": "./pages/purchases",
+    "chunk": "main"
+  },
+  {
     "path": "/error",
     "page": "./pages/error",
     "chunk": "main"

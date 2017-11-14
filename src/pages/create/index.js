@@ -232,7 +232,7 @@ class CreatePage extends Component {
                 />
               </Link>
               <MenuItem
-                primaryText="Spot (Comming Soon)"
+                primaryText="Spot (Soon)"
                 style={{
                   color: "#FFFFFF",
                   opacity: 0.5,
