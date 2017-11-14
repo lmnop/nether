@@ -4,6 +4,7 @@ import storage from 'redux-persist/es/storage';
 
 import app from './app';
 import user from './user';
+import contracts from './contracts';
 
 const config = {
   version: '0.0.1',
@@ -15,6 +16,7 @@ const config = {
 const rootReducer = combineReducers({
   app,
   user,
+  contracts,
 });
 
 export default persistReducer(config, rootReducer);

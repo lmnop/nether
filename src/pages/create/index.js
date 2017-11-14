@@ -250,7 +250,6 @@ class CreatePage extends Component {
 const bindStore = (state) => {
   return {
     showLogin: !state.user.mnemonic,
-    user: state.user,
     loading: state.app.loading,
     error: state.app.error,
   };

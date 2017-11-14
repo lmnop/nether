@@ -37,7 +37,7 @@ class WalletPage extends Component {
     if (this.props.showLogin) {
       history.push('unlock');
     } else {
-      this.props.unlockAccount(this.props.user.mnemonic, this.props.user.email);
+      this.props.unlockAccount(this.props.mnemonic, this.props.email);
     }
   }
 
@@ -62,8 +62,6 @@ class WalletPage extends Component {
   }
 
   render() {
-    console.log(this.props.user);
-
     return (
       <Layout>
         <div className={s.container}>
@@ -85,7 +83,7 @@ class WalletPage extends Component {
               Email
             </Subheader>
             <div className={s.address}>
-              {this.props.user.email}
+              {this.props.email}
             </div>
             <Subheader
               style={{
@@ -95,7 +93,7 @@ class WalletPage extends Component {
               Public Key
             </Subheader>
             <div className={s.address}>
-              {this.props.user.address}
+              {this.props.address}
             </div>
             <Subheader
               style={{
@@ -105,7 +103,7 @@ class WalletPage extends Component {
               Ethereum Balance
             </Subheader>
             <div className={s.address}>
-              Ξ {this.props.user.balanceEth}
+              Ξ {this.props.balanceEth}
             </div>
             <div
               className={s.button}
@@ -201,8 +199,11 @@ class WalletPage extends Component {
 
 const bindStore = (state) => {
   return {
+    mnemonic: state.user.mnemonic,
     showLogin: !state.user.mnemonic,
-    user: state.user,
+    email: state.user.email,
+    address: state.user.address,
+    balanceEth: state.user.balanceEth,
     loading: state.app.loading,
     error: state.app.error,
   };

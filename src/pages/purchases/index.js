@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import bip39 from 'bip39';
+import _ from 'lodash';
 
 import Drawer from 'material-ui/Drawer';
 import Menu from 'material-ui/Menu';
@@ -47,7 +47,7 @@ class PurchasesPage extends Component {
     if (this.props.showLogin) {
       history.push('unlock');
     } else {
-      this.props.unlockAccount(this.props.user.mnemonic, this.props.user.email);
+      this.props.unlockAccount(this.props.mnemonic, this.props.email);
     }
   }
 
@@ -71,8 +71,71 @@ class PurchasesPage extends Component {
     });
   }
 
+  renderDevicePurchaseEmpty() {
+    if (_.isEmpty(this.props.purchasesPending) && _.isEmpty(this.props.purchaseContract.purchases)) {
+      return (
+        <TableRow>
+          <TableRowColumn style={{ width: 100 }}>
+            No Device Purchases Completed
+          </TableRowColumn>
+        </TableRow>
+      );
+    }
+  }
+
+  renderDevicePurchasePending() {
+    return _.map(this.props.purchasesPending, (pending, i) => {
+      console.log('PENDING', pending);
+
+      return (
+        <TableRow key={i}>
+          <TableRowColumn style={{ width: 20 }}>
+            <AutoRenew color="#FFFFFF" />
+          </TableRowColumn>
+          <TableRowColumn style={{ width: 100 }}>
+            Nether Alpha
+          </TableRowColumn>
+          <TableRowColumn style={{ width: 60 }}>
+            0.3
+          </TableRowColumn>
+          <TableRowColumn style={{ minWidth: 310 }}>
+            <a href={`https://etherscan.io/tx/${123}`} target="_blank">
+              0x87c694e72682a032c16cc60333dbdb22c8f8a932058cddd3f3dce08f953fa873
+            </a>
+          </TableRowColumn>
+        </TableRow>
+      );
+    });
+  }
+
+  renderDevicePurchase() {
+    return _.map(this.props.purchaseContract.purchases, (purchase, i) => {
+      console.log('PURCHASE', purchase);
+
+      return (
+        <TableRow key={i}>
+          <TableRowColumn style={{ width: 20 }}>
+            <AutoRenew color="#FFFFFF" />
+          </TableRowColumn>
+          <TableRowColumn style={{ width: 100 }}>
+            Nether Alpha
+          </TableRowColumn>
+          <TableRowColumn style={{ width: 60 }}>
+            0.3
+          </TableRowColumn>
+          <TableRowColumn style={{ minWidth: 310 }}>
+            <a href={`https://etherscan.io/tx/${123}`} target="_blank">
+              0x87c694e72682a032c16cc60333dbdb22c8f8a932058cddd3f3dce08f953fa873
+            </a>
+          </TableRowColumn>
+        </TableRow>
+      );
+    });
+  }
+
   render() {
-    console.log(this.props.user);
+    console.log();
+    console.log(this.props.purchaseContract);
 
     return (
       <Layout>
@@ -115,22 +178,9 @@ class PurchasesPage extends Component {
               <TableBody
                 displayRowCheckbox={false}
               >
-                <TableRow>
-                  <TableRowColumn style={{ width: 20 }}>
-                    <AutoRenew color="#FFFFFF" />
-                  </TableRowColumn>
-                  <TableRowColumn style={{ width: 100 }}>
-                    Nether Alpha
-                  </TableRowColumn>
-                  <TableRowColumn style={{ width: 60 }}>
-                    0.3
-                  </TableRowColumn>
-                  <TableRowColumn style={{ minWidth: 310 }}>
-                    <a href={`https://etherscan.io/tx/${123}`} target="_blank">
-                      0x87c694e72682a032c16cc60333dbdb22c8f8a932058cddd3f3dce08f953fa873
-                    </a>
-                  </TableRowColumn>
-                </TableRow>
+                {this.renderDevicePurchaseEmpty()}
+                {this.renderDevicePurchasePending()}
+                {this.renderDevicePurchase()}
               </TableBody>
             </Table>
             <Table
@@ -144,7 +194,7 @@ class PurchasesPage extends Component {
                   <TableHeaderColumn style={{ width: 20 }}>
                     Status
                   </TableHeaderColumn>
-                  <TableHeaderColumn style={{ width: 60 }}>
+                  <TableHeaderColumn style={{ width: 100 }}>
                     Data
                   </TableHeaderColumn>
                   <TableHeaderColumn style={{ width: 60 }}>
@@ -162,22 +212,8 @@ class PurchasesPage extends Component {
                 displayRowCheckbox={false}
               >
                 <TableRow>
-                  <TableRowColumn style={{ width: 20 }}>
-                    <AutoRenew color="#FFFFFF" />
-                  </TableRowColumn>
-                  <TableRowColumn style={{ width: 60 }}>
-                    10 GB
-                  </TableRowColumn>
-                  <TableRowColumn style={{ width: 60 }}>
-                    0.03
-                  </TableRowColumn>
-                  <TableRowColumn style={{ width: 60 }}>
-                    0.3
-                  </TableRowColumn>
-                  <TableRowColumn style={{ minWidth: 310 }}>
-                    <a href={`https://etherscan.io/tx/${123}`} target="_blank">
-                      0x87c694e72682a032c16cc60333dbdb22c8f8a932058cddd3f3dce08f953fa873
-                    </a>
+                  <TableRowColumn style={{ width: 100 }}>
+                    No Data Purchases Completed
                   </TableRowColumn>
                 </TableRow>
               </TableBody>
@@ -268,8 +304,11 @@ class PurchasesPage extends Component {
 
 const bindStore = (state) => {
   return {
+    mnemonic: state.user.mnemonic,
+    email: state.user.email,
     showLogin: !state.user.mnemonic,
-    user: state.user,
+    purchasesPending: state.user.purchasesPending,
+    purchaseContract: state.user.purchaseContract,
     loading: state.app.loading,
     error: state.app.error,
   };
