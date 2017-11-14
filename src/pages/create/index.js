@@ -21,7 +21,7 @@ import * as userActions from '../../actions/user';
 
 import s from './styles.css';
 
-class UnlockPage extends Component {
+class CreatePage extends Component {
 
   constructor(props) {
     super(props);
@@ -30,12 +30,15 @@ class UnlockPage extends Component {
       width: window.innerWidth,
       mnemonic: '',
       error: '',
+      email: '',
     };
   }
 
   componentWillMount() {
     if (!this.props.showLogin) {
       history.push('wallet');
+    } else {
+      this.generateMnemonic();
     }
   }
 
@@ -59,14 +62,22 @@ class UnlockPage extends Component {
     });
   }
 
-  checkMnemonic(mnemonic) {
+  generateMnemonic() {
+    this.setState({
+      mnemonic: bip39.generateMnemonic(),
+    });
+  }
+
+  checkMnemonic() {
+    this.setState({
+      error: '',
+    });
+
+    const mnemonic = this.state.mnemonic;
+
     if (mnemonic.trim().split(/\s+/g).length >= 12) {
       if (bip39.validateMnemonic(mnemonic)) {
-        this.props.useWallet(mnemonic);
-
-        this.setState({
-          error: '',
-        });
+        this.props.createAccount(mnemonic, this.state.email);
       } else {
         this.setState({
           error: 'account phrase is invalid',
@@ -105,6 +116,9 @@ class UnlockPage extends Component {
             <div className={s.title}>
               Device<br/>Manager
             </div>
+            <div className={s.info}>
+              This is your generated account phrase and is used to unlock your account in the future and handle your private keys for signing transactions.
+            </div>
             <div className={s.box}>
               <div className={s.boxHeader}>
                 Account Phrase
@@ -124,13 +138,52 @@ class UnlockPage extends Component {
               </div>
               {this.renderBoxFooter(this.state.error)}
             </div>
+            <div className={s.info}>
+              We do not store/save this information on our servers, and thus can't recover this for you.
+            </div>
+            <div className={s.info}>
+              Please keep this secret and secure.
+            </div>
+            <div
+              className={s.generate}
+              onClick={() => {
+                this.generateMnemonic();
+              }}
+            >
+              Generate New Phrase
+            </div>
+            <div className={s.box}>
+              <div className={s.boxHeader}>
+                Enter Email
+              </div>
+              <div className={s.boxBody}>
+                <input
+                  className={s.email}
+                  onChange={(event) => {
+                    this.setState({
+                      email: event.target.value,
+                    });
+                  }}
+                  value={this.state.email}
+                />
+              </div>
+              {this.renderBoxFooter(this.props.error)}
+            </div>
+            <div className={s.info}>
+              Email is used to send notifications and handle any communication specifically tied to your account.
+            </div>
+            <div className={s.info}>
+              We will email you your account phrase for your records.
+            </div>
             <div
               className={s.button}
               onClick={() => {
-                this.checkMnemonic(this.state.mnemonic);
+                if (!this.props.loading) {
+                  this.checkMnemonic();
+                }
               }}
             >
-              Unlock Account
+              Create Account
             </div>
           </div>
           <Drawer
@@ -148,6 +201,7 @@ class UnlockPage extends Component {
                   leftIcon={<LockOpen color="#FFFFFF" />}
                   style={{
                     color: "#FFFFFF",
+                    opacity: 0.5,
                   }}
                 />
               </Link>
@@ -157,7 +211,6 @@ class UnlockPage extends Component {
                   leftIcon={<PersonAdd color="#FFFFFF" />}
                   style={{
                     color: "#FFFFFF",
-                    opacity: 0.5,
                   }}
                 />
               </Link>
@@ -204,7 +257,7 @@ const bindStore = (state) => {
 };
 
 const bindActions = dispatch => ({
-  useWallet: (mnemonic) => dispatch(userActions.useWallet(mnemonic)),
+  createAccount: (mnemonic, email) => dispatch(userActions.createAccount(mnemonic, email)),
 });
 
-export default connect(bindStore, bindActions)(UnlockPage);
+export default connect(bindStore, bindActions)(CreatePage);

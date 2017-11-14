@@ -12,8 +12,13 @@
 }
 
 .body {
-  transition: all 1s ease;
   margin-top: 40px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-height: 100vh;
 }
 
 .title {
@@ -43,7 +48,6 @@
 
 .boxBody {
   width: 300px;
-  min-height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -68,7 +72,7 @@
 
 .mnemonic {
   width: 300px;
-  height: 100px;
+  height: 80px;
   align-items: center;
   justify-content: center;
   padding: 20px;
@@ -78,14 +82,16 @@
   resize: none;
 }
 
-input, textarea {
-  outline: none;
-}
- 
-input:focus, textarea:focus {
-  box-shadow: 0 0 5px var(--white);
-  border: 2px solid var(--white);
-  margin-top: -2px;
+.email {
+  width: 300px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: var(--black);
+  color: var(--white);
+  font-size: 16px;
+  resize: none;
 }
 
 .button {
@@ -97,6 +103,7 @@ input:focus, textarea:focus {
   align-items: center;
   justify-content: center;
   margin: 10px;
+  margin-top: 20px;
   opacity: 0.8;
   transition: all 1s ease;
   font-family: var(--font-replica-light);
@@ -109,4 +116,37 @@ input:focus, textarea:focus {
 
 .button:active {
   opacity: 0.5;
+}
+
+.generate {
+  font-family: var(--font-replica);
+  color: var(--purple);
+  margin: 10px;
+  font-size: 14px;
+}
+
+.generate:hover {
+  cursor: pointer;
+  border-bottom: 1px solid var(--purple);
+  margin-bottom: 9px;
+}
+
+.info {
+  font-family: var(--font-replica);
+  color: var(--white);
+  width: 300px;
+  margin: 10px;
+  opacity: 0.8;
+  font-size: 12px;
+}
+
+input, textarea {
+  outline: none;
+  border: 1px solid var(--white);
+}
+ 
+input:focus, textarea:focus {
+  box-shadow: 0 0 5px var(--white);
+  border: 2px solid var(--white);
+  margin-top: -2px;
 }

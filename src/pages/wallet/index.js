@@ -37,7 +37,7 @@ class WalletPage extends Component {
     if (this.props.showLogin) {
       history.push('unlock');
     } else {
-      this.props.useWallet(this.props.user.mnemonic);
+      this.props.unlockAccount(this.props.user.mnemonic, this.props.user.email);
     }
   }
 
@@ -76,6 +76,16 @@ class WalletPage extends Component {
           >
             <div className={s.title}>
               Device<br/>Manager
+            </div>
+            <Subheader
+              style={{
+                color: "#FFFFFF",
+              }}
+            >
+              Email
+            </Subheader>
+            <div className={s.address}>
+              {this.props.user.email}
             </div>
             <Subheader
               style={{
@@ -197,7 +207,7 @@ const bindStore = (state) => {
 };
 
 const bindActions = dispatch => ({
-  useWallet: (mnemonic) => dispatch(userActions.useWallet(mnemonic)),
+  unlockAccount: (mnemonic, email) => dispatch(userActions.unlockAccount(mnemonic, email)),
   resetApp: () => dispatch(userActions.resetApp()),
 });
 

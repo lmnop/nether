@@ -35,8 +35,10 @@
       }
 
       window.environment = '<%= environment %>';
-      window.apiUrl = '<%= apiUrl %>';
       window.updatedLast = '<%= updatedLast %>';
+      window.apiUser = '<%= apiUser %>';
+      window.apiPass = '<%= apiPass %>';
+      window.infuraToken = '<%= infuraToken %>';
     </script>
     <script src="<%= bundle %>"></script>
     <%_ if (!debug && config.googleTrackingId) { _%>

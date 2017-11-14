@@ -29,6 +29,7 @@ class UnlockPage extends Component {
     this.state = {
       width: window.innerWidth,
       mnemonic: '',
+      email: '',
       error: '',
     };
   }
@@ -59,14 +60,16 @@ class UnlockPage extends Component {
     });
   }
 
-  checkMnemonic(mnemonic) {
+  checkMnemonic() {
+    this.setState({
+      error: '',
+    });
+
+    const mnemonic = this.state.mnemonic;
+
     if (mnemonic.trim().split(/\s+/g).length >= 12) {
       if (bip39.validateMnemonic(mnemonic)) {
-        this.props.useWallet(mnemonic);
-
-        this.setState({
-          error: '',
-        });
+        this.props.unlockAccount(mnemonic, this.state.email);
       } else {
         this.setState({
           error: 'account phrase is invalid',
@@ -124,10 +127,29 @@ class UnlockPage extends Component {
               </div>
               {this.renderBoxFooter(this.state.error)}
             </div>
+            <div className={s.box}>
+              <div className={s.boxHeader}>
+                Enter Email
+              </div>
+              <div className={s.boxBody}>
+                <input
+                  className={s.email}
+                  onChange={(event) => {
+                    this.setState({
+                      email: event.target.value,
+                    });
+                  }}
+                  value={this.state.email}
+                />
+              </div>
+              {this.renderBoxFooter(this.props.error)}
+            </div>
             <div
               className={s.button}
               onClick={() => {
-                this.checkMnemonic(this.state.mnemonic);
+                if (!this.props.loading) {
+                  this.checkMnemonic();
+                }
               }}
             >
               Unlock Account
@@ -204,7 +226,7 @@ const bindStore = (state) => {
 };
 
 const bindActions = dispatch => ({
-  useWallet: (mnemonic) => dispatch(userActions.useWallet(mnemonic)),
+  unlockAccount: (mnemonic, email) => dispatch(userActions.unlockAccount(mnemonic, email)),
 });
 
 export default connect(bindStore, bindActions)(UnlockPage);

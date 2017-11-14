@@ -12,8 +12,12 @@
 }
 
 .body {
-  transition: all 1s ease;
   margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-height: 100vh;
 }
 
 .title {

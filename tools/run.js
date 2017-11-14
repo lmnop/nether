@@ -31,7 +31,9 @@ module.exports = task('run', () => new Promise(resolve => {
       bundle: `/dist/${bundle}`,
       config,
       environment: process.env.NODE_ENV,
-      apiUrl: process.env.API_URL || 'http://localhost:5000',
+      apiUser: process.env.API_USER,
+      apiPass: process.env.API_PASS,
+      infuraToken: process.env.INFURA_TOKEN,
       updatedLast: moment().format('x'),
     });
 
