@@ -4,6 +4,7 @@ const initialState = {
   purchase: {
     price: 0,
     priceEth: 0,
+    estimatedGasEth: 0,
   },
 };
 

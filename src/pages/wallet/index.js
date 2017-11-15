@@ -72,7 +72,7 @@ class WalletPage extends Component {
             >
               Email
             </Subheader>
-            <div className={s.address}>
+            <div className={s.text}>
               {this.props.email}
             </div>
             <Subheader
@@ -96,7 +96,7 @@ class WalletPage extends Component {
             >
               Ethereum Balance
             </Subheader>
-            <div className={s.address}>
+            <div className={s.text}>
               Ξ {this.props.balanceEth}
             </div>
             <div

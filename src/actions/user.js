@@ -5,9 +5,13 @@ import _ from 'lodash';
 
 import { PurchaseAlphaJSON } from 'lmnop-contracts';
 
+import history from '../history';
+
 import * as api from '../api';
 
 import { Actions } from '../constants';
+
+let intervalPurchasePending;
 
 const handleError = (dispatch, err) => {
   dispatch({
@@ -18,8 +22,6 @@ const handleError = (dispatch, err) => {
 
 const getEthereum = async (mnemonic) => {
   let providerUrl = `https://rinkeby.infura.io/${window.infuraToken}`;
-
-  console.log(providerUrl);
 
   const provider = new HDWalletProvider(mnemonic, providerUrl);
   const PurchaseAlphaContract = contract(PurchaseAlphaJSON);
@@ -58,7 +60,7 @@ const getBlock = (web3, block, address, contractAddress) => new Promise((resolve
 });
 
 const getPurchasePending = (web3, address, purchaseAddress, dispatch) => {
-  setInterval(async () => {
+  intervalPurchasePending = setInterval(async () => {
     const transactions = await getBlock(web3, 'pending', address, purchaseAddress);
 
     dispatch({
@@ -69,6 +71,10 @@ const getPurchasePending = (web3, address, purchaseAddress, dispatch) => {
 };
 
 export const resetApp = () => (dispatch) => {
+  if (intervalPurchasePending) {
+    clearInterval(intervalPurchasePending);
+  }
+
   dispatch({
     type: Actions.APP_RESET,
   });
@@ -99,12 +105,14 @@ export const unlockAccount = (mnemonic, email) => async (dispatch) => {
     getPurchasePending(web3, address, PurchaseAlpha.address, dispatch);
 
     const price = await PurchaseAlpha.price();
+    const estimatedGas = await PurchaseAlpha.purchase.estimateGas(1);
 
     dispatch({
       type: Actions.PURCHASE_CONTRACT_SET,
       payload: {
         price: price.toNumber(),
         priceEth: web3.utils.fromWei(price, 'ether'),
+        estimatedGasEth: web3.utils.fromWei(_.round(estimatedGas, -6), 'ether'),
       },
     });
 
@@ -119,7 +127,7 @@ export const unlockAccount = (mnemonic, email) => async (dispatch) => {
         return blocknumber.toNumber();
       });
 
-      const getBlocks = _.map(blockNumbers, (block) => {
+      const getBlocks = _.map(purchaseContract.blockNumbers, (block) => {
         return getBlock(web3, block, address, PurchaseAlpha.address);
       });
 
@@ -175,6 +183,73 @@ export const createAccount = (mnemonic, email) => async (dispatch) => {
         email,
       },
     });
+
+    dispatch({
+      type: Actions.APP_LOADING,
+      payload: false,
+    });
+  } catch (err) {
+    handleError(dispatch, err);
+  }
+};
+
+export const getPurchaseAlphaContract = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: Actions.APP_LOADING,
+      payload: true,
+    });
+
+    const { provider, web3, PurchaseAlpha } = await getEthereum('default');
+
+    const price = await PurchaseAlpha.price();
+    const estimatedGas = await PurchaseAlpha.purchase.estimateGas(1);
+
+    dispatch({
+      type: Actions.PURCHASE_CONTRACT_SET,
+      payload: {
+        price: price.toNumber(),
+        priceEth: web3.utils.fromWei(price, 'ether'),
+        estimatedGasEth: web3.utils.fromWei(_.round(estimatedGas, -6), 'ether'),
+      },
+    });
+
+    dispatch({
+      type: Actions.APP_LOADING,
+      payload: false,
+    });
+  } catch (err) {
+    handleError(dispatch, err);
+  }
+};
+
+export const purchaseAlpha = (data) => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: Actions.APP_LOADING,
+      payload: true,
+    });
+
+    const state = getState();
+
+    const { provider, web3, PurchaseAlpha } = await getEthereum(state.user.mnemonic);
+
+    const price = await PurchaseAlpha.price();
+    const estimatedGas = await PurchaseAlpha.purchase.estimateGas(1);
+
+    const address = provider.address;
+    const balance = await getBalance(web3, address);
+
+    if (balance < price.toNumber() + estimatedGas) {
+      throw new Error('insufficient wallet balance')
+    }
+
+    await PurchaseAlpha.purchase(1, {
+      from: address,
+      value: price.toNumber(),
+    });
+
+    history.push('purchases');
 
     dispatch({
       type: Actions.APP_LOADING,

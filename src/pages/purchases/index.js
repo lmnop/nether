@@ -124,9 +124,6 @@ class PurchasesPage extends Component {
   }
 
   render() {
-    console.log();
-    console.log(this.props.purchaseContract);
-
     return (
       <Layout>
         <div className={s.container}>
