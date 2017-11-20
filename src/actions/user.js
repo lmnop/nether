@@ -44,16 +44,19 @@ const getBalance = (web3, address) => new Promise((resolve, reject) => {
   });
 });
 
-const getBlock = (web3, block, address, contractAddress) => new Promise((resolve, reject) => {
-  web3.eth.getBlock(block, true, (error, block) => {
-    let transactions = [];
+const getBlock = (web3, blocknumber, address, contractAddress) => new Promise((resolve, reject) => {
+  web3.eth.getBlock(blocknumber, true, (error, block) => {
+    const transactions = _.chain(block.transactions)
+      .filter((transaction) => {
+        return address.toLowerCase() === transaction.from.toLowerCase()
+          && contractAddress.toLowerCase() === transaction.to.toLowerCase();
+      })
+      .map((transaction) => {
+        transaction.valueEth = web3.utils.fromWei(transaction.value, 'ether');
 
-    if (block) {
-      transactions = _.filter(block.transactions, {
-        from: address,
-        to: contractAddress,
-      });
-    }
+        return transaction;
+      })
+      .value();
 
     return resolve(transactions);
   });
@@ -123,15 +126,24 @@ export const unlockAccount = (mnemonic, email) => async (dispatch) => {
 
       purchaseContract.units = purchaser[0].toNumber();
 
-      purchaseContract.blockNumbers = _.map(purchaser[1], (blocknumber) => {
-        return blocknumber.toNumber();
-      });
+      console.log('UNITS', purchaseContract.units);
+
+      purchaseContract.blockNumbers = _.chain(purchaser[1])
+        .map((blocknumber) => {
+          return blocknumber.toNumber();
+        })
+        .uniq()
+        .value();
+
+      console.log('blocks', purchaseContract.blockNumbers);
 
       const getBlocks = _.map(purchaseContract.blockNumbers, (block) => {
         return getBlock(web3, block, address, PurchaseAlpha.address);
       });
 
-      purchaseContract.purchases = await Promise.all(getBlocks);
+      purchaseContract.purchases = _.flatten(await Promise.all(getBlocks));
+
+      console.log(purchaseContract.purchases.length);
     }
 
     dispatch({

@@ -212,7 +212,7 @@ class AlphaPage extends Component {
           {this.renderBoxFooter(this.state.ethError || this.props.error)}
         </div>
         <div
-          className={s.button}
+          className={`${s.button} ${this.props.loading ? s.buttonDisabled : ''}`}
           onClick={() => {
             if (this.props.mnemonic === this.state.mnemonic) {
               this.setState({

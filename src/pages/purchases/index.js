@@ -12,6 +12,7 @@ import {
 } from 'material-ui/Table';
 
 import AutoRenew from 'material-ui/svg-icons/action/autorenew';
+import CheckCircle from 'material-ui/svg-icons/action/check-circle';
 
 import history from '../../history';
 
@@ -75,10 +76,8 @@ class PurchasesPage extends Component {
 
   renderDevicePurchasePending() {
     return _.map(this.props.purchasesPending, (pending, i) => {
-      console.log('PENDING', pending);
-
       return (
-        <TableRow key={i}>
+        <TableRow key={pending.hash}>
           <TableRowColumn style={{ width: 20 }}>
             <AutoRenew color="#FFFFFF" />
           </TableRowColumn>
@@ -86,11 +85,11 @@ class PurchasesPage extends Component {
             Nether Alpha
           </TableRowColumn>
           <TableRowColumn style={{ width: 60 }}>
-            0.3
+            {pending.valueEth}
           </TableRowColumn>
           <TableRowColumn style={{ minWidth: 310 }}>
-            <a href={`https://etherscan.io/tx/${123}`} target="_blank">
-              0x87c694e72682a032c16cc60333dbdb22c8f8a932058cddd3f3dce08f953fa873
+            <a href={`https://etherscan.io/tx/${pending.hash}`} target="_blank">
+              {pending.hash}
             </a>
           </TableRowColumn>
         </TableRow>
@@ -100,22 +99,20 @@ class PurchasesPage extends Component {
 
   renderDevicePurchase() {
     return _.map(this.props.purchaseContract.purchases, (purchase, i) => {
-      console.log('PURCHASE', purchase);
-
       return (
-        <TableRow key={i}>
+        <TableRow key={purchase.hash}>
           <TableRowColumn style={{ width: 20 }}>
-            <AutoRenew color="#FFFFFF" />
+            <CheckCircle color="#FFFFFF" />
           </TableRowColumn>
           <TableRowColumn style={{ width: 100 }}>
             Nether Alpha
           </TableRowColumn>
           <TableRowColumn style={{ width: 60 }}>
-            0.3
+            {purchase.valueEth}
           </TableRowColumn>
           <TableRowColumn style={{ minWidth: 310 }}>
-            <a href={`https://etherscan.io/tx/${123}`} target="_blank">
-              0x87c694e72682a032c16cc60333dbdb22c8f8a932058cddd3f3dce08f953fa873
+            <a href={`https://etherscan.io/tx/${purchase.hash}`} target="_blank">
+              {purchase.hash}
             </a>
           </TableRowColumn>
         </TableRow>
