@@ -261,6 +261,13 @@ export const purchaseAlpha = (data) => async (dispatch, getState) => {
       value: price.toNumber(),
     });
 
+    await api.orderAlpha({
+      email: state.user.email,
+      city: data.city,
+      country: data.country,
+      postalCode: data.postalCode,
+    });
+
     history.push('purchases');
 
     dispatch({

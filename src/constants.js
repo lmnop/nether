@@ -10,4 +10,5 @@ export const Actions = {
 export const Routes = {
   CREATE_ACCOUNT: '/account/create',
   UNLOCK_ACCOUNT: '/account/unlock',
+  ORDER_ALPHA: '/alpha/order',
 };

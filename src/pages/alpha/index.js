@@ -18,8 +18,6 @@ class AlphaPage extends Component {
     this.state = {
       width: window.innerWidth,
       mnemonic: '',
-      address: '',
-      address2: '',
       country: '',
       city: '',
       postalCode: '',
@@ -79,56 +77,7 @@ class AlphaPage extends Component {
       <div>
         <div className={s.box}>
           <div className={s.boxHeader}>
-            Confirm Account Phrase
-          </div>
-          <div className={s.boxBody}>
-            <textarea
-              rows="4"
-              cols="50"
-              className={s.mnemonic}
-              onChange={(event) => {
-                this.setState({
-                  mnemonic: event.target.value,
-                });
-              }}
-              value={this.state.mnemonic}
-            />
-          </div>
-          {this.renderBoxFooter(this.state.mnemonicError)}
-        </div>
-        <div className={s.info}>
-          We are working to deliver all devices without knowing too much about you.
-        </div>
-        <div className={s.info}>
-          You can provide as much or as little shipping info as you want. We can follow up with you via email to find the best way to deliver the device.
-        </div>
-        <div className={s.box}>
-          <div className={s.boxHeader}>
             Shipping Information (optional)
-          </div>
-          <div className={s.boxBody}>
-            <input
-              className={s.input}
-              onChange={(event) => {
-                this.setState({
-                  address: event.target.value,
-                });
-              }}
-              value={this.state.address}
-              placeholder="address"
-            />
-          </div>
-          <div className={s.boxBody}>
-            <input
-              className={s.input}
-              onChange={(event) => {
-                this.setState({
-                  address2: event.target.value,
-                });
-              }}
-              value={this.state.address2}
-              placeholder="address 2"
-            />
           </div>
           <div className={s.boxBody}>
             <input
@@ -167,6 +116,31 @@ class AlphaPage extends Component {
             />
           </div>
           {this.renderBoxFooter(this.state.shippingError)}
+        </div>
+        <div className={s.info}>
+          We are working to deliver all devices without knowing too much about you.
+        </div>
+        <div className={s.info}>
+          You can provide as much or as little shipping info as you want. We will follow up with you via email to find the best way to deliver the device.
+        </div>
+        <div className={s.box}>
+          <div className={s.boxHeader}>
+            Confirm Account Phrase
+          </div>
+          <div className={s.boxBody}>
+            <textarea
+              rows="4"
+              cols="50"
+              className={s.mnemonic}
+              onChange={(event) => {
+                this.setState({
+                  mnemonic: event.target.value,
+                });
+              }}
+              value={this.state.mnemonic}
+            />
+          </div>
+          {this.renderBoxFooter(this.state.mnemonicError)}
         </div>
         <div className={s.checkout}>
           <div className={s.checkoutRow}>
@@ -262,6 +236,11 @@ class AlphaPage extends Component {
             <div className={s.price}>
               Ξ {this.props.priceEth}
             </div>
+            <video
+              className={s.alpha}
+              src="./images/alpha.mp4"
+              autoPlay
+            />
             {this.props.showLogin ? this.renderLock() : this.renderUnlock()}
           </div>
           <Sidebar page="alpha" />

@@ -35,7 +35,6 @@ const makeRequest = async (method, url, body) => {
 
     return Promise.resolve(data);
   } catch (err) {
-    console.log(err);
     return Promise.reject({
       message: 'failed making request',
     });
@@ -44,4 +43,4 @@ const makeRequest = async (method, url, body) => {
 
 export const createAccount = async (data) => makeRequest('POST', `${Routes.CREATE_ACCOUNT}`, data);
 export const unlockAccount = async (data) => makeRequest('POST', `${Routes.UNLOCK_ACCOUNT}`, data);
-
+export const orderAlpha = async (data) => makeRequest('POST', `${Routes.ORDER_ALPHA}`, data);

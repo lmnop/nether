@@ -3,7 +3,7 @@
 .module {
   align-self: stretch;
   flex: 0 1;
-  background: var(--black);
+  background: #000;
   flex-direction: column;
 }
 
