@@ -124,15 +124,16 @@ class PurchasesPage extends Component {
     return (
       <Layout>
         <div className={s.container}>
-          <Header />
+          <Header sidebar />
           <div
             className={s.body}
             style={{
-              marginLeft: 310,
+              transition: 'all 600ms ease',
+              marginLeft: this.props.open ? 310 : 150,
             }}
           >
             <div className={s.title}>
-              Device<br/>Manager
+              Device Manager
             </div>
             <Table
               selectable={false}
@@ -169,6 +170,9 @@ class PurchasesPage extends Component {
             </Table>
             <Table
               selectable={false}
+              bodyStyle={{
+                marginBottom: 80,
+              }}
             >
               <TableHeader
                 displaySelectAll={false}
@@ -219,6 +223,7 @@ const bindStore = (state) => {
     purchaseContract: state.user.purchaseContract,
     loading: state.app.loading,
     error: state.app.error,
+    open: state.app.open,
   };
 };
 

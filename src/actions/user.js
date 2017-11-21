@@ -83,6 +83,12 @@ export const resetApp = () => (dispatch) => {
   });
 };
 
+export const flipSidebar = () => (dispatch) => {
+  dispatch({
+    type: Actions.APP_FLIP_SIDEBAR,
+  });
+};
+
 export const unlockAccount = (mnemonic, email) => async (dispatch) => {
   try {
     dispatch({

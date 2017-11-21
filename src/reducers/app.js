@@ -3,6 +3,7 @@ import { Actions } from '../constants';
 const initialState = {
   loading: false,
   error: '',
+  open: true,
 };
 
 export default function reducer(state = initialState, action) {
@@ -17,6 +18,13 @@ export default function reducer(state = initialState, action) {
         ...state,
         loading: action.payload,
         error: '',
+      };
+    }
+
+    case Actions.APP_FLIP_SIDEBAR: {
+      return {
+        ...state,
+        open: !state.open,
       };
     }
 

@@ -19,7 +19,7 @@ function Header(props) {
     <div className={s.container}>
       <div className={s.left}>
         <Link to="/">
-          <div className={s.logo}>
+          <div className={`${s.logo} ${props.sidebar ? s.sidebar : ''}`}>
             <img src="images/logo.png" className={props.loading ? s.loading : ''} />
           </div>
         </Link>

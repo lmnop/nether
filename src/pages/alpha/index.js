@@ -223,24 +223,25 @@ class AlphaPage extends Component {
     return (
       <Layout>
         <div className={s.container}>
-          <Header />
+          <Header sidebar />
           <div
             className={s.body}
             style={{
-              marginLeft: 310,
+              transition: 'all 600ms ease',
+              marginLeft: this.props.open ? 310 : 150,
             }}
           >
-            <video
-              className={s.alpha}
-              src="./images/alpha.mp4"
-              autoPlay
-            />
             <div className={s.title}>
               Nether Alpha
             </div>
             <div className={s.price}>
               Ξ {this.props.priceEth}
             </div>
+            <video
+              className={s.alpha}
+              src="./images/alpha.mp4"
+              autoPlay
+            />
             {this.props.showLogin ? this.renderLock() : this.renderUnlock()}
           </div>
           <Sidebar page="alpha" />
@@ -259,6 +260,7 @@ const bindStore = (state) => {
     error: state.app.error,
     priceEth: state.contracts.purchase.priceEth,
     estimatedGasEth: state.contracts.purchase.estimatedGasEth,
+    open: state.app.open,
   };
 };
 

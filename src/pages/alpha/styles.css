@@ -26,6 +26,7 @@
   color: var(--white);
   font-size: 32px;
   margin-bottom: 20px;
+  z-index: 10;
 }
 
 .price {
@@ -38,6 +39,7 @@
   padding-top: 10px;
   padding-bottom: 10px;
   border: 1px solid var(--purple);
+  z-index: 10;
 }
 
 .box {
@@ -209,6 +211,6 @@ input:focus, textarea:focus {
 
 .alpha {
   margin-left: -30px;
-  margin-top: -100px;
+  margin-top: -200px;
   width: 100vw;
 }

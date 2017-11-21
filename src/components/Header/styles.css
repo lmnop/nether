@@ -28,6 +28,11 @@
   background-color: var(--purple);
   align-items: center;
   justify-content: center;
+  transition: all 1s ease;
+}
+
+.sidebar {
+  background-color: var(--black);
 }
 
 .loading {

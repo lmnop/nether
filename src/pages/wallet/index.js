@@ -55,15 +55,16 @@ class WalletPage extends Component {
     return (
       <Layout>
         <div className={s.container}>
-          <Header />
+          <Header sidebar />
           <div
             className={s.body}
             style={{
-              marginLeft: 310,
+              transition: 'all 600ms ease',
+              marginLeft: this.props.open ? 310 : 150,
             }}
           >
             <div className={s.title}>
-              Device<br/>Manager
+              Device Manager
             </div>
             <Subheader
               style={{
@@ -124,6 +125,7 @@ const bindStore = (state) => {
     balanceEth: state.user.balanceEth,
     loading: state.app.loading,
     error: state.app.error,
+    open: state.app.open,
   };
 };
 

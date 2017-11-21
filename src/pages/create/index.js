@@ -97,15 +97,16 @@ class CreatePage extends Component {
     return (
       <Layout>
         <div className={s.container}>
-          <Header />
+          <Header sidebar />
           <div
             className={s.body}
             style={{
-              marginLeft: 310,
+              transition: 'all 600ms ease',
+              marginLeft: this.props.open ? 310 : 150,
             }}
           >
             <div className={s.title}>
-              Device<br/>Manager
+              Device Manager
             </div>
             <div className={s.info}>
               This is your generated account phrase and is used to unlock your account in the future and handle your private keys for signing transactions.
@@ -189,6 +190,7 @@ const bindStore = (state) => {
     showLogin: !state.user.mnemonic,
     loading: state.app.loading,
     error: state.app.error,
+    open: state.app.open,
   };
 };
 
