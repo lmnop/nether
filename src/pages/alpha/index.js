@@ -230,17 +230,17 @@ class AlphaPage extends Component {
               marginLeft: 310,
             }}
           >
+            <video
+              className={s.alpha}
+              src="./images/alpha.mp4"
+              autoPlay
+            />
             <div className={s.title}>
               Nether Alpha
             </div>
             <div className={s.price}>
               Ξ {this.props.priceEth}
             </div>
-            <video
-              className={s.alpha}
-              src="./images/alpha.mp4"
-              autoPlay
-            />
             {this.props.showLogin ? this.renderLock() : this.renderUnlock()}
           </div>
           <Sidebar page="alpha" />
